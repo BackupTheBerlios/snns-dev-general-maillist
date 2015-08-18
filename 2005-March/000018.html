@@ -1,0 +1,140 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Snns-dev-general] problems withsnns-4.2-20040227.patch]]]
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/snns-dev-general/2005-March/index.html" >
+   <LINK REL="made" HREF="mailto:snns-dev-general%40lists.berlios.de?Subject=Re%3A%20%5BSnns-dev-general%5D%20problems%20withsnns-4.2-20040227.patch%5D%5D%5D&In-Reply-To=%3C1110559787.4092.108.camel%40cosmo.local%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000017.html">
+   <LINK REL="Next"  HREF="000019.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Snns-dev-general] problems withsnns-4.2-20040227.patch]]]</H1>
+    <B>INFO at El-Ama.de</B> 
+    <A HREF="mailto:snns-dev-general%40lists.berlios.de?Subject=Re%3A%20%5BSnns-dev-general%5D%20problems%20withsnns-4.2-20040227.patch%5D%5D%5D&In-Reply-To=%3C1110559787.4092.108.camel%40cosmo.local%3E"
+       TITLE="[Snns-dev-general] problems withsnns-4.2-20040227.patch]]]">INFO at El-Ama.de
+       </A><BR>
+    <I>Fri Mar 11 17:50:01 CET 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000017.html">[Snns-dev-general] problems withsnns-4.2-20040227.patch]]]
+</A></li>
+        <LI>Next message: <A HREF="000019.html">[Snns-dev-general] problems withsnns-4.2-20040227.patch]]]
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#18">[ date ]</a>
+              <a href="thread.html#18">[ thread ]</a>
+              <a href="subject.html#18">[ subject ]</a>
+              <a href="author.html#18">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello Armida,
+
+This seem to be ok.
+
+Commands in the status line:
+I have nerver really worked with the Graphical Network Editor.
+But as far I can say it works very well on Linux.
+I prefer the bignet panel to create my networks - on Page 119 ff,
+or better the ff_bignet tool - on page 270
+
+For a real efficient scientific work you have to get fimilar with the
+Batchman and the SNNS-tools like ff_bignet (manual p. 235 and p 268). 
+The GUI of the SNNS is just like a visualisation plattform for your
+results and a place were you can do little adjustments and
+optimisations. The SNNS GUI is also good for small examples with a small
+amount of patterns and small networks. For real big turns with a lot of
+changing setup parameters you need the batchman and the tools. 
+
+Please try an SNNS example like the &quot;letter&quot; example or the to be sure
+the SNNS works correctly, before you start with your own work to avoid a
+waste of your reserach time. 
+
+Feel free to ask for further support!
+
+regards
+
+[Andre El-Ama]
+
+Am Fr, 2005-03-11 um 15.27 schrieb Armida Di Fenza:
+&gt;<i> Dear Andre,
+</I>&gt;<i> 
+</I>&gt;<i> I tried again in a different way to install the Xaw3d, and now even if I
+</I>&gt;<i> still get the installation interrupted and the message:
+</I>&gt;<i> 
+</I>&gt;<i> ------------------------------------------------------------------------------------------------------------------
+</I>&gt;<i> ar  rc  lib3d.a net_analyzer.o  d3_xUtils.o  d3_global.o  d3_anageo.o 
+</I>&gt;<i> d3_shade.o  d3_lists.o  d3_point.o  d3_dither.o  d3_zgraph.o 
+</I>&gt;<i> d3_fonts.o  d3_graph.o  d3_draw.o  d3_disp.o  d3_move.o  d3_zValue.o 
+</I>&gt;<i> d3_setup.o  d3_units.o  d3_links.o  d3_model.o  d3_project.o 
+</I>&gt;<i> d3_light.o  d3_pannels.o  d3_main.o  bn_bignet.o  bn_basics.o 
+</I>&gt;<i> bn_art1.o  bn_art2.o  bn_artmap.o  bn_TD_bignet.o  bn_kohonen.o 
+</I>&gt;<i> bn_assoz.o  o_graph.o  bn_JordElm.o  ui_class.o  bn_bighop.o
+</I>&gt;<i>         :  lib3d.a
+</I>&gt;<i>         gcc  libxgui1.a libxgui2.a lib3d.a \
+</I>&gt;<i>         -L/usr/people/armida/xc/lib/Xaw3d  -lXaw3d -lXmu -lXt -lXext
+</I>&gt;<i> -lSM -lICE  -lX11  \
+</I>&gt;<i>         ../../kernel/sources/libkernel.a  ../../kernel/sources/libfunc.a
+</I>&gt;<i> -lm -ll  -o xgui 
+</I>&gt;<i> ld32: WARNING 85: definition of vendorShellWidgetClass in
+</I>&gt;<i> /usr/people/armida/xc/lib/Xaw3d/libXaw3d.a(Vendor.o) preempts that
+</I>&gt;<i> definition in /usr/lib32/libXt.so.
+</I>&gt;<i> ld32: WARNING 85: definition of vendorShellClassRec in
+</I>&gt;<i> /usr/people/armida/xc/lib/Xaw3d/libXaw3d.a(Vendor.o) preempts that
+</I>&gt;<i> definition in /usr/lib32/libXt.so.
+</I>&gt;<i>         /usr/people/armida/SNNS/SNNSv4.2/configuration/install-sh -c  -s
+</I>&gt;<i> xgui /usr/people/armida/SNNS/SNNSv4.2/xgui/bin/mips-sgi-irix6.5
+</I>&gt;<i> strip: Warning:
+</I>&gt;<i> /usr/people/armida/SNNS/SNNSv4.2/xgui/bin/mips-sgi-irix6.5/#inst.127612#:
+</I>&gt;<i> .MIPS.content.debug_line linked to a section that has been removed 
+</I>&gt;<i> strip: Warning:
+</I>&gt;<i> /usr/people/armida/SNNS/SNNSv4.2/xgui/bin/mips-sgi-irix6.5/#inst.127612#:
+</I>&gt;<i> .MIPS.content.debug_info linked to a section that has been removed 
+</I>&gt;<i> strip: Warning:
+</I>&gt;<i> /usr/people/armida/SNNS/SNNSv4.2/xgui/bin/mips-sgi-irix6.5/#inst.127612#:
+</I>&gt;<i> .MIPS.content.debug_aranges linked to a section that has been removed 
+</I>&gt;<i> -------------------------------------------------------------------------------------------------------------------
+</I>&gt;<i> 
+</I>&gt;<i> when I run the gui....it works. Does it means that everything went well?
+</I>&gt;<i> Or should I expect problems somewhere?  Because I found no difference in
+</I>&gt;<i> the graphic, and I still cannot see how to enter commands in the status
+</I>&gt;<i> line, I cannot even find a status line, as described at pag. 103 of the
+</I>&gt;<i> manual.
+</I>&gt;<i> 
+</I>&gt;<i> Ciao Armida
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> Snns-dev-general mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/snns-dev-general">Snns-dev-general at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="http://lists.berlios.de/mailman/listinfo/snns-dev-general">http://lists.berlios.de/mailman/listinfo/snns-dev-general</A>
+</I>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000017.html">[Snns-dev-general] problems withsnns-4.2-20040227.patch]]]
+</A></li>
+	<LI>Next message: <A HREF="000019.html">[Snns-dev-general] problems withsnns-4.2-20040227.patch]]]
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#18">[ date ]</a>
+              <a href="thread.html#18">[ thread ]</a>
+              <a href="subject.html#18">[ subject ]</a>
+              <a href="author.html#18">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/snns-dev-general">More information about the Snns-dev-general
+mailing list</a><br>
+</body></html>

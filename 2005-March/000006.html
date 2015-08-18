@@ -1,0 +1,283 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Snns-dev-general] problems with snns-4.2-20040227.patch
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/snns-dev-general/2005-March/index.html" >
+   <LINK REL="made" HREF="mailto:snns-dev-general%40lists.berlios.de?Subject=Re%3A%20%5BSnns-dev-general%5D%20problems%20with%20snns-4.2-20040227.patch&In-Reply-To=%3C42304E3C.179DA87A%40ipcf.cnr.it%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000004.html">
+   <LINK REL="Next"  HREF="000007.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Snns-dev-general] problems with snns-4.2-20040227.patch</H1>
+    <B>Armida Di Fenza</B> 
+    <A HREF="mailto:snns-dev-general%40lists.berlios.de?Subject=Re%3A%20%5BSnns-dev-general%5D%20problems%20with%20snns-4.2-20040227.patch&In-Reply-To=%3C42304E3C.179DA87A%40ipcf.cnr.it%3E"
+       TITLE="[Snns-dev-general] problems with snns-4.2-20040227.patch">Armida.DiFenza at ipcf.cnr.it
+       </A><BR>
+    <I>Thu Mar 10 14:40:12 CET 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000004.html">[Snns-dev-general] Batchman using &quot;execute&quot; question
+</A></li>
+        <LI>Next message: <A HREF="000007.html">[Snns-dev-general] problems with snns-4.2-20040227.patch
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#6">[ date ]</a>
+              <a href="thread.html#6">[ thread ]</a>
+              <a href="subject.html#6">[ subject ]</a>
+              <a href="author.html#6">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Dear Developers,
+
+dear users,
+
+
+I patched SNNSv4.2 following the instructions in the SNNS-development
+homepage, using the snns-4.2-20040227.patch, on my Irix64 6.5. I then
+proceeded to configure and install SNNS. I had no problem during
+configuration but when I tried to install, I got the following error
+message:
+
+hannibal 33% make install
+        cd tools/sources &amp;&amp; make install-strip
+make: file `Makefile' line 31: Must be a separator (: or ::) for rules
+(bu39)
+make: file `Makefile' line 31: Syntax error
+*** Error code 1 (bu21)
+
+This error only appear after patching. Here is the outputs of the
+patching operation:
+
+
+hannibal 31% patch -p0 &lt;snns-4.2-20040227.patch
+Hmm...  Looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|<i>Nur in SNNSv4.2-patched: autom4te.cache.
+</I>|<i>Nur in SNNSv4.2-patched: config.cache.
+</I>|<i>Nur in SNNSv4.2-patched: config.log.
+</I>|<i>diff -ru SNNSv4.2/configure SNNSv4.2-patched/configure
+</I>|<i>--- SNNSv4.2/configure 1998-09-03 15:44:28.000000000 +0200
+</I>|<i>+++ SNNSv4.2-patched/configure 2004-02-24 14:33:32.569070466 +0100
+</I>--------------------------
+File to patch: configure
+Patching file configure using Plan A...
+Hunk #1 succeeded at 1.
+Hunk #2 succeeded at 330.
+Hunk #3 succeeded at 352.
+Hunk #4 succeeded at 362.
+Hunk #5 succeeded at 423.
+Hunk #6 succeeded at 472.
+Hunk #7 succeeded at 498.
+Hunk #8 succeeded at 534.
+Hunk #9 succeeded at 544.
+Hunk #10 succeeded at 555.
+Hunk #11 succeeded at 616.
+Hunk #12 succeeded at 729.
+Hunk #13 succeeded at 1215.
+Hunk #14 succeeded at 1325.
+Hunk #15 succeeded at 1339.
+Hunk #16 succeeded at 1448.
+Hunk #17 succeeded at 1474.
+Hunk #18 succeeded at 3016.
+Hunk #19 succeeded at 3228.
+Hunk #20 succeeded at 4393.
+Hunk #21 succeeded at 4696.
+Hunk #22 succeeded at 4746.
+Hunk #23 succeeded at 5190.
+Hunk #24 succeeded at 5211.
+Hunk #25 succeeded at 6400.
+Hunk #26 succeeded at 6462.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|<i>diff -ru SNNSv4.2/kernel/sources/kr_mem.c
+</I>SNNSv4.2-patched/kernel/sources/kr_mem.c
+|<i>--- SNNSv4.2/kernel/sources/kr_mem.c   1998-09-03 15:38:16.000000000
+</I>+0200
+|<i>+++ SNNSv4.2-patched/kernel/sources/kr_mem.c   2004-02-24
+</I>14:01:29.744318302 +0100
+--------------------------
+File to patch: kernel/sources/kr_mem.c
+Patching file kernel/sources/kr_mem.c using Plan A...
+Hunk #1 succeeded at 27.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|<i>diff -ru SNNSv4.2/kernel/sources/learn_f.c
+</I>SNNSv4.2-patched/kernel/sources/learn_f.c
+|<i>--- SNNSv4.2/kernel/sources/learn_f.c  1998-09-03 15:38:22.000000000
+</I>+0200
+|<i>+++ SNNSv4.2-patched/kernel/sources/learn_f.c  2004-02-24
+</I>14:01:29.753315362 +0100
+--------------------------
+File to patch: kernel/sources/learn_f.c
+Patching file kernel/sources/learn_f.c using Plan A...
+Hunk #1 succeeded at 36.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|<i>diff -ru SNNSv4.2/kernel/sources/Makefile
+</I>SNNSv4.2-patched/kernel/sources/Makefile
+|<i>--- SNNSv4.2/kernel/sources/Makefile   1998-09-03 15:38:00.000000000
+</I>+0200
+|<i>+++ SNNSv4.2-patched/kernel/sources/Makefile   2004-02-24
+</I>14:01:29.755314709 +0100
+--------------------------
+File to patch: kernel/sources/Makefil
+No file found--skip this patch? [n]
+File to patch: kernel/sources/Makefile
+Patching file kernel/sources/Makefile using Plan A...
+Hunk #1 succeeded at 49.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|<i>diff -ru SNNSv4.2/tools/sources/Makefile
+</I>SNNSv4.2-patched/tools/sources/Makefile
+|<i>--- SNNSv4.2/tools/sources/Makefile    1998-09-03 15:37:47.000000000
+</I>+0200
+|<i>+++ SNNSv4.2-patched/tools/sources/Makefile    2004-02-24
+</I>14:01:29.756314382 +0100
+--------------------------
+File to patch: tools/sources/Makefile
+Patching file tools/sources/Makefile using Plan A...
+Hunk #1 succeeded at 26.
+Hunk #2 succeeded at 177.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|<i>diff -ru SNNSv4.2/xgui/sources/Makefile
+</I>SNNSv4.2-patched/xgui/sources/Makefile
+|<i>--- SNNSv4.2/xgui/sources/Makefile     1998-09-03 15:39:03.000000000
+</I>+0200
+|<i>+++ SNNSv4.2-patched/xgui/sources/Makefile     2004-02-24
+</I>14:01:29.759313402 +0100
+--------------------------
+File to patch: xgui/sources/Makefile
+Patching file xgui/sources/Makefile using Plan A...
+Hunk #1 succeeded at 26.
+Hunk #2 succeeded at 203.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|<i>diff -ru SNNSv4.2/xgui/sources/ui_config.c
+</I>SNNSv4.2-patched/xgui/sources/ui_config.c
+|<i>--- SNNSv4.2/xgui/sources/ui_config.c  1998-09-03 15:39:32.000000000
+</I>+0200
+|<i>+++ SNNSv4.2-patched/xgui/sources/ui_config.c  2004-02-24
+</I>14:01:29.760313076 +0100
+--------------------------
+File to patch: xgui/sources/ui_config.c
+Patching file xgui/sources/ui_config.c using Plan A...
+Hunk #1 succeeded at 492.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|<i>diff -ru SNNSv4.2/xgui/sources/ui_file.ph
+</I>SNNSv4.2-patched/xgui/sources/ui_file.ph
+|<i>--- SNNSv4.2/xgui/sources/ui_file.ph   1998-09-03 15:39:38.000000000
+</I>+0200
+|<i>+++ SNNSv4.2-patched/xgui/sources/ui_file.ph   2004-02-24
+</I>14:01:29.761312749 +0100
+--------------------------
+File to patch: xgui/sources/ui_file.ph
+Patching file xgui/sources/ui_file.ph using Plan A...
+Hunk #1 succeeded at 41.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|<i>diff -ru SNNSv4.2/xgui/sources/ui.h SNNSv4.2-patched/xgui/sources/ui.h
+</I>|<i>--- SNNSv4.2/xgui/sources/ui.h 1998-09-03 15:39:22.000000000 +0200
+</I>|<i>+++ SNNSv4.2-patched/xgui/sources/ui.h 2004-02-24 14:01:29.763312096
+</I>+0100
+--------------------------
+File to patch: xgui/sources/ui.h
+Patching file xgui/sources/ui.h using Plan A...
+Hunk #1 succeeded at 21.
+Hunk #2 succeeded at 66.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|<i>--- SNNSv4.2/kernel/sources/kr_mem.c   2004-02-25 10:56:42.171875000
+</I>+0000
+|<i>+++ SNNSv4.2-patched/kernel/sources/kr_mem.c   2004-02-25
+</I>11:00:56.484375000 +0000
+--------------------------
+File to patch: kernel/sources/kr_mem.c
+Patching file kernel/sources/kr_mem.c using Plan A...
+Hunk #1 succeeded at 37.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|<i>--- SNNSv4.2/tools/sources/snnsbat.c   1998-09-03 13:37:58.000000000
+</I>+0000
+|<i>+++ SNNSv4.2-patched/tools/sources/snnsbat.c   2004-02-25
+</I>11:04:04.828125000 +0000
+--------------------------
+File to patch: tools/sources/snnsbat.c
+Patching file tools/sources/snnsbat.c using Plan A...
+Hunk #1 succeeded at 39.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|<i>--- SNNSv4.2/tools/sources/symtab.c    1998-09-03 15:37:59.000000000
+</I>+0200
+|<i>+++ SNNSv4.2-patched/tools/sources/symtab.c    2004-02-25
+</I>11:29:26.000000000 +0100
+--------------------------
+File to patch: tools/sources/symtab.c
+Patching file tools/sources/symtab.c using Plan A...
+Hunk #1 succeeded at 32.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|<i>--- SNNSv4.2/kernel/sources/init_f.c   1998-09-03 13:38:08.000000000
+</I>+0000
+|<i>+++ SNNSv4.2-patched/kernel/sources/init_f.c   2004-02-27
+</I>11:14:03.968750000 +0000
+--------------------------
+File to patch: kernel/sources/init_f.c
+Patching file kernel/sources/init_f.c using Plan A...
+Hunk #1 succeeded at 62.
+done
+
+
+May you give me any suggestion about what to do in order to avoid this
+problem?
+
+Thank you very much,
+
+Armida
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000004.html">[Snns-dev-general] Batchman using &quot;execute&quot; question
+</A></li>
+	<LI>Next message: <A HREF="000007.html">[Snns-dev-general] problems with snns-4.2-20040227.patch
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#6">[ date ]</a>
+              <a href="thread.html#6">[ thread ]</a>
+              <a href="subject.html#6">[ subject ]</a>
+              <a href="author.html#6">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/snns-dev-general">More information about the Snns-dev-general
+mailing list</a><br>
+</body></html>

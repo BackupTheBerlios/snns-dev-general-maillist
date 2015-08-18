@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Snns-dev-general] problems withsnns-4.2-20040227.patch]]]
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/snns-dev-general/2005-March/index.html" >
+   <LINK REL="made" HREF="mailto:snns-dev-general%40lists.berlios.de?Subject=Re%3A%20%5BSnns-dev-general%5D%20problems%20withsnns-4.2-20040227.patch%5D%5D%5D&In-Reply-To=%3C4231AAC0.6A499B4%40ipcf.cnr.it%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000016.html">
+   <LINK REL="Next"  HREF="000018.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Snns-dev-general] problems withsnns-4.2-20040227.patch]]]</H1>
+    <B>Armida Di Fenza</B> 
+    <A HREF="mailto:snns-dev-general%40lists.berlios.de?Subject=Re%3A%20%5BSnns-dev-general%5D%20problems%20withsnns-4.2-20040227.patch%5D%5D%5D&In-Reply-To=%3C4231AAC0.6A499B4%40ipcf.cnr.it%3E"
+       TITLE="[Snns-dev-general] problems withsnns-4.2-20040227.patch]]]">Armida.DiFenza at ipcf.cnr.it
+       </A><BR>
+    <I>Fri Mar 11 15:27:12 CET 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000016.html">[Snns-dev-general] problems withsnns-4.2-20040227.patch]]
+</A></li>
+        <LI>Next message: <A HREF="000018.html">[Snns-dev-general] problems withsnns-4.2-20040227.patch]]]
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#17">[ date ]</a>
+              <a href="thread.html#17">[ thread ]</a>
+              <a href="subject.html#17">[ subject ]</a>
+              <a href="author.html#17">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Dear Andre,
+
+I tried again in a different way to install the Xaw3d, and now even if I
+still get the installation interrupted and the message:
+
+------------------------------------------------------------------------------------------------------------------
+ar  rc  lib3d.a net_analyzer.o  d3_xUtils.o  d3_global.o  d3_anageo.o 
+d3_shade.o  d3_lists.o  d3_point.o  d3_dither.o  d3_zgraph.o 
+d3_fonts.o  d3_graph.o  d3_draw.o  d3_disp.o  d3_move.o  d3_zValue.o 
+d3_setup.o  d3_units.o  d3_links.o  d3_model.o  d3_project.o 
+d3_light.o  d3_pannels.o  d3_main.o  bn_bignet.o  bn_basics.o 
+bn_art1.o  bn_art2.o  bn_artmap.o  bn_TD_bignet.o  bn_kohonen.o 
+bn_assoz.o  o_graph.o  bn_JordElm.o  ui_class.o  bn_bighop.o
+        :  lib3d.a
+        gcc  libxgui1.a libxgui2.a lib3d.a \
+        -L/usr/people/armida/xc/lib/Xaw3d  -lXaw3d -lXmu -lXt -lXext
+-lSM -lICE  -lX11  \
+        ../../kernel/sources/libkernel.a  ../../kernel/sources/libfunc.a
+-lm -ll  -o xgui 
+ld32: WARNING 85: definition of vendorShellWidgetClass in
+/usr/people/armida/xc/lib/Xaw3d/libXaw3d.a(Vendor.o) preempts that
+definition in /usr/lib32/libXt.so.
+ld32: WARNING 85: definition of vendorShellClassRec in
+/usr/people/armida/xc/lib/Xaw3d/libXaw3d.a(Vendor.o) preempts that
+definition in /usr/lib32/libXt.so.
+        /usr/people/armida/SNNS/SNNSv4.2/configuration/install-sh -c  -s
+xgui /usr/people/armida/SNNS/SNNSv4.2/xgui/bin/mips-sgi-irix6.5
+strip: Warning:
+/usr/people/armida/SNNS/SNNSv4.2/xgui/bin/mips-sgi-irix6.5/#inst.127612#:
+.MIPS.content.debug_line linked to a section that has been removed 
+strip: Warning:
+/usr/people/armida/SNNS/SNNSv4.2/xgui/bin/mips-sgi-irix6.5/#inst.127612#:
+.MIPS.content.debug_info linked to a section that has been removed 
+strip: Warning:
+/usr/people/armida/SNNS/SNNSv4.2/xgui/bin/mips-sgi-irix6.5/#inst.127612#:
+.MIPS.content.debug_aranges linked to a section that has been removed 
+-------------------------------------------------------------------------------------------------------------------
+
+when I run the gui....it works. Does it means that everything went well?
+Or should I expect problems somewhere?  Because I found no difference in
+the graphic, and I still cannot see how to enter commands in the status
+line, I cannot even find a status line, as described at pag. 103 of the
+manual.
+
+Ciao Armida
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000016.html">[Snns-dev-general] problems withsnns-4.2-20040227.patch]]
+</A></li>
+	<LI>Next message: <A HREF="000018.html">[Snns-dev-general] problems withsnns-4.2-20040227.patch]]]
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#17">[ date ]</a>
+              <a href="thread.html#17">[ thread ]</a>
+              <a href="subject.html#17">[ subject ]</a>
+              <a href="author.html#17">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/snns-dev-general">More information about the Snns-dev-general
+mailing list</a><br>
+</body></html>

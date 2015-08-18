@@ -1,0 +1,203 @@
+From hannes.planatscher at uni-tuebingen.de  Tue Jun 24 16:30:04 2008
+From: hannes.planatscher at uni-tuebingen.de (Hannes Planatscher)
+Date: Tue, 24 Jun 2008 16:30:04 +0200
+Subject: [Snns-dev-general] SNNS license changes to the LGPL
+Message-ID: <486104EC.2070109@uni-tuebingen.de>
+
+Hello everyone,
+
+I'm a research assistant at the department of computer architecture in
+Tuebingen.  First I want to thank all the developers in the SNNS
+development project. You all made important contributions and kept the
+project alive.
+
+Today I'm glad to announce that Professor Zell has decided to change
+SNNS's license to the LGPL. I have created a new SNNS source package
+that includes some bugfixes, the new license and all the patches
+provided by the  SNNS development project.  I would be happy to include
+the names of the patch authors in the release file, if they want so. If
+any of the patch authors has concerns about the inclusion of his/her
+patch in the official distribution, please let me know. You can download
+the sources here:
+
+http://www.ra.cs.uni-tuebingen.de/downloads/SNNS/SNNSv4.3.tar.gz
+
+I'll wait for comments (and/or protest ;)) from this list and then, if
+there are no serious issues, update the official website.
+
+We are now trying to get SNNS to run on x86 64-bit architectures. This
+is a side project though, and there is no release date for this.
+
+Best regards,
+    Hannes Planatscher
+
+-- 
+Dipl.-Inform. (Bioinformatik) Hannes Planatscher
+Center of Bioinformatics - Dept. Prof. Zell
+University of Tuebingen
+72076 Tuebingen
+Phone: +49 (0) 7071 29 78982
+Fax: +49 (0) 7071 29 5091
+EMail: hannes.planatscher at uni-tuebingen.de
+http://www-ra.informatik.uni-tuebingen.de
+
+
+
+
+
+From Patrick.Kursawe at web.de  Wed Jun 25 09:06:16 2008
+From: Patrick.Kursawe at web.de (Patrick Kursawe)
+Date: Wed, 25 Jun 2008 09:06:16 +0200
+Subject: [Snns-dev-general] SNNS license changes to the LGPL
+In-Reply-To: <486104EC.2070109@uni-tuebingen.de>
+References: <486104EC.2070109@uni-tuebingen.de>
+Message-ID: <20080625070616.GA11042@zaphod.anachem.ruhr-uni-bochum.de>
+
+Hi there,
+
+On Di, Jun 24, 2008 at 04:30:04 +0200, Hannes Planatscher wrote:
+ 
+> Today I'm glad to announce that Professor Zell has decided to change
+> SNNS's license to the LGPL.
+
+I am glad to hear this, I just hope it's not too late yet. I am afraid
+there are quite a few people who already put this into the "abandoned
+projects" folder.
+
+> I have created a new SNNS source package
+> that includes some bugfixes, the new license and all the patches
+> provided by the  SNNS development project. 
+
+Please consider this patch:
+http://bugs.gentoo.org/attachment.cgi?id=155537&action=view
+aswell, I did not yet find the time to add it.
+
+> I would be happy to include
+> the names of the patch authors in the release file, if they want so. 
+
+Would be nice, thank you.
+
+> You can download
+> the sources here:
+> 
+> http://www.ra.cs.uni-tuebingen.de/downloads/SNNS/SNNSv4.3.tar.gz
+
+I think you included python/snns/krui.c.orig in the tarball.
+
+> I'll wait for comments (and/or protest ;)) from this list and then, if
+> there are no serious issues, update the official website.
+
+It would be very nice if you could elaborate on why the version 2 from 1991
+of the LGPL was picked. I understand that some people do not like version
+3 of the LGPL, but I don't see why you did not at least use version 2.1 from 1999.
+
+> We are now trying to get SNNS to run on x86 64-bit architectures. This
+> is a side project though, and there is no release date for this.
+
+There are some people who consider this already working, at least with this
+patch:
+http://sources.gentoo.org/viewcvs.py/gentoo-x86/sci-mathematics/snns/files/4.2-fPIC-python.patch?rev=1.1.1.1&view=markup
+Please contact Jan Brinkmann <luckyduck_??t_gentoo.org> if there are
+problems he wasn't aware of.
+
+Thank you very much,
+
+Patrick
+
+
+From hannes.planatscher at uni-tuebingen.de  Mon Jun 30 08:34:01 2008
+From: hannes.planatscher at uni-tuebingen.de (Hannes Planatscher)
+Date: Mon, 30 Jun 2008 08:34:01 +0200
+Subject: [Snns-dev-general] SNNS license changes to the LGPL
+In-Reply-To: <20080625070616.GA11042@zaphod.anachem.ruhr-uni-bochum.de>
+References: <486104EC.2070109@uni-tuebingen.de>
+	<20080625070616.GA11042@zaphod.anachem.ruhr-uni-bochum.de>
+Message-ID: <48687E59.5010000@uni-tuebingen.de>
+
+Hi,
+>> Today I'm glad to announce that Professor Zell has decided to change
+>> SNNS's license to the LGPL.
+>>     
+>
+> I am glad to hear this, I just hope it's not too late yet. I am afraid
+> there are quite a few people who already put this into the "abandoned
+> projects" folder.
+>   
+
+I know,  still we get some support requests.
+
+>> I have created a new SNNS source package
+>> that includes some bugfixes, the new license and all the patches
+>> provided by the  SNNS development project. 
+>>     
+>
+> Please consider this patch:
+> http://bugs.gentoo.org/attachment.cgi?id=155537&action=view
+> aswell, I did not yet find the time to add it.
+>   
+Ok, I will.
+>> I would be happy to include
+>> the names of the patch authors in the release file, if they want so. 
+>>     
+>
+> Would be nice, thank you.
+>   
+Hmm, its you and? Do you have some names I should include. Or could the
+developers, who want to be included, send me a short notice?
+
+>> You can download
+>> the sources here:
+>>
+>> http://www.ra.cs.uni-tuebingen.de/downloads/SNNS/SNNSv4.3.tar.gz
+>>     
+>
+> I think you included python/snns/krui.c.orig in the tarball.
+>   
+Ups. I'll remove this, thanks.
+
+>> I'll wait for comments (and/or protest ;)) from this list and then, if
+>> there are no serious issues, update the official website.
+>>     
+>
+> It would be very nice if you could elaborate on why the version 2 from 1991
+> of the LGPL was picked. I understand that some people do not like version
+> 3 of the LGPL, but I don't see why you did not at least use version 2.1 from 1999.
+>   
+
+Yeah, we will take the version 2.1. I just used the wrong  link on 
+gnu.org ;).
+
+>> We are now trying to get SNNS to run on x86 64-bit architectures. This
+>> is a side project though, and there is no release date for this.
+>>     
+>
+> There are some people who consider this already working, at least with this
+> patch:
+> http://sources.gentoo.org/viewcvs.py/gentoo-x86/sci-mathematics/snns/files/4.2-fPIC-python.patch?rev=1.1.1.1&view=markup
+> Please contact Jan Brinkmann <luckyduck_??t_gentoo.org> if there are
+> problems he wasn't aware of.
+>   
+Nice! I've got SNNS compiled on AMD64 :). I do not know however, if
+there are some hacks in SNNS that come up afterwards?. We will see.
+> Thank you very much,
+Thank you for the useful hints!
+
+I'll make the changes in the package and post updates on this list.
+
+All the best,
+    Hannes
+
+-- 
+Dipl.-Inform. (Bioinformatik) Hannes Planatscher
+Center of Bioinformatics - Dept. Prof. Zell
+University of Tuebingen
+72076 Tuebingen
+Phone: +49 (0) 7071 29 78982
+Fax: +49 (0) 7071 29 5091
+EMail: hannes.planatscher at uni-tuebingen.de
+http://www-ra.informatik.uni-tuebingen.de
+
+
+
+
+

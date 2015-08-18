@@ -1,0 +1,34 @@
+From Patrick.Kursawe at web.de  Sun Mar 16 20:31:50 2008
+From: Patrick.Kursawe at web.de (Patrick Kursawe)
+Date: Sun, 16 Mar 2008 20:31:50 +0100
+Subject: [Snns-dev-general] is there a howto on the C function interface
+	somewhere?
+In-Reply-To: <e26d18e40802272058ud4cad91xb9eddbd2360351b0@mail.gmail.com>
+References: <e26d18e40802272058ud4cad91xb9eddbd2360351b0@mail.gmail.com>
+Message-ID: <20080316193150.GA30094@zaphod.anachem.ruhr-uni-bochum.de>
+
+On Mi, Feb 27, 2008 at 08:58:39 -0800, Anatoly Yakovenko wrote:
+> i cant figure out how to use the C function interface to do something
+> simple like:
+> 
+> create some neural network
+> configure the training function
+> 
+> train it with some data
+> 
+> then test with some new data.
+
+Sorry for answering so late...
+
+There is no "cookbook" I know of for the krui interface, but you can have a
+look at the examples for the Python bindings I wrote a few years ago like
+"encodertest.py" and "som_cube_winners.py". The Python bindings follow the
+C interface very closely (except where it could be made a bit more
+comfortable), just watch out for all those "krui.something()" lines which
+tell you the functions you have to call and their order.
+
+Hope that helps,
+
+Patrick
+
+

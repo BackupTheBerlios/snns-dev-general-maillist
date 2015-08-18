@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Snns-dev-general] is there a howto on the C function	interfacesomewhere?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/snns-dev-general/2008-February/index.html" >
+   <LINK REL="made" HREF="mailto:snns-dev-general%40lists.berlios.de?Subject=Re%3A%20%5BSnns-dev-general%5D%20is%20there%20a%20howto%20on%20the%20C%20function%0A%09interfacesomewhere%3F&In-Reply-To=%3Ce26d18e40802281120r3c9d5498qf05d43df0f49b5c3%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000026.html">
+   <LINK REL="Next"  HREF="000028.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Snns-dev-general] is there a howto on the C function	interfacesomewhere?</H1>
+    <B>Anatoly Yakovenko</B> 
+    <A HREF="mailto:snns-dev-general%40lists.berlios.de?Subject=Re%3A%20%5BSnns-dev-general%5D%20is%20there%20a%20howto%20on%20the%20C%20function%0A%09interfacesomewhere%3F&In-Reply-To=%3Ce26d18e40802281120r3c9d5498qf05d43df0f49b5c3%40mail.gmail.com%3E"
+       TITLE="[Snns-dev-general] is there a howto on the C function	interfacesomewhere?">aeyakovenko at gmail.com
+       </A><BR>
+    <I>Thu Feb 28 20:20:42 CET 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000026.html">[Snns-dev-general] is there a howto on the C function interface	somewhere?
+</A></li>
+        <LI>Next message: <A HREF="000028.html">[Snns-dev-general] is there a howto on the C function	interfacesomewhere?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#27">[ date ]</a>
+              <a href="thread.html#27">[ thread ]</a>
+              <a href="subject.html#27">[ subject ]</a>
+              <a href="author.html#27">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>&gt;<i>  <A HREF="http://www.ra.cs.uni-tuebingen.de/downloads/SNNS/SNNSv4.2.Manual.pdf">http://www.ra.cs.uni-tuebingen.de/downloads/SNNS/SNNSv4.2.Manual.pdf</A>
+</I>&gt;<i>  (Chapter 13.14 page 281 - Snns2c)
+</I>&gt;<i>  (Chapter 14 page 290 - Kernel Functions)
+</I>
+i've looked at the documentation, but it is really terse.    I am
+looking for an example like this one, which implements a network which
+learns the xor function using the FANN library.
+
+#include &quot;fann.h&quot;
+
+int main(int argc, char* argv[]) {
+   int ii;
+   struct fann* nn = 0;
+   fann_type input[2];
+   fann_type output[1];
+
+   nn = fann_create_standard(3, 2, 2, 1);
+   fann_randomize_weights(nn, -0.1, 0.1);
+   for(ii = 0; ii &lt; 100000; ++ii) {
+      int aa,bb;
+      aa = ii % 2;
+      bb = (ii &gt;&gt; 1) % 2;
+      input[0] = aa;
+      input[1] = bb;
+      output[0] = aa ^ bb;
+      fann_train(nn, input, output);
+   }
+   for(ii = 0; ii &lt; 4; ++ii) {
+      fann_type* out = 0;
+      input[0] = ii % 2;
+      input[1] = (ii &gt;&gt; 1) % 2;
+      out = fann_run(nn, input);
+      printf(&quot;%f ^ %f = %f\n&quot;, input[0], input[1], out[0]);
+   }
+}
+
+I cant really figure out what functions achieve the same effect in snns.
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000026.html">[Snns-dev-general] is there a howto on the C function interface	somewhere?
+</A></li>
+	<LI>Next message: <A HREF="000028.html">[Snns-dev-general] is there a howto on the C function	interfacesomewhere?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#27">[ date ]</a>
+              <a href="thread.html#27">[ thread ]</a>
+              <a href="subject.html#27">[ subject ]</a>
+              <a href="author.html#27">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/snns-dev-general">More information about the Snns-dev-general
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,126 @@
+From aeyakovenko at gmail.com  Thu Feb 28 05:58:39 2008
+From: aeyakovenko at gmail.com (Anatoly Yakovenko)
+Date: Wed, 27 Feb 2008 20:58:39 -0800
+Subject: [Snns-dev-general] is there a howto on the C function interface
+	somewhere?
+Message-ID: <e26d18e40802272058ud4cad91xb9eddbd2360351b0@mail.gmail.com>
+
+i cant figure out how to use the C function interface to do something
+simple like:
+
+create some neural network
+configure the training function
+
+train it with some data
+
+then test with some new data.
+
+Any help would be greatly appreciated.
+
+Thanks,
+Anatoly
+
+
+From aeyakovenko at gmail.com  Thu Feb 28 06:42:27 2008
+From: aeyakovenko at gmail.com (Anatoly Yakovenko)
+Date: Wed, 27 Feb 2008 21:42:27 -0800
+Subject: [Snns-dev-general] is there a howto on the C function interface
+	somewhere?
+Message-ID: <e26d18e40802272142m5708a5c9t71725620055eb131@mail.gmail.com>
+
+i cant figure out how to use the C function interface to do something
+simple like:
+
+create some neural network
+configure the training function
+
+train it with some data
+
+then test with some new data.
+
+Any help would be greatly appreciated.
+
+Thanks,
+Anatoly
+
+
+From aeyakovenko at gmail.com  Thu Feb 28 20:20:42 2008
+From: aeyakovenko at gmail.com (Anatoly Yakovenko)
+Date: Thu, 28 Feb 2008 11:20:42 -0800
+Subject: [Snns-dev-general] is there a howto on the C function
+	interfacesomewhere?
+In-Reply-To: <000301c879fe$395d9eb0$0a01a8c0@exxpertsystems8>
+References: <e26d18e40802272142m5708a5c9t71725620055eb131@mail.gmail.com>
+	<000301c879fe$395d9eb0$0a01a8c0@exxpertsystems8>
+Message-ID: <e26d18e40802281120r3c9d5498qf05d43df0f49b5c3@mail.gmail.com>
+
+>  http://www.ra.cs.uni-tuebingen.de/downloads/SNNS/SNNSv4.2.Manual.pdf
+>  (Chapter 13.14 page 281 - Snns2c)
+>  (Chapter 14 page 290 - Kernel Functions)
+
+i've looked at the documentation, but it is really terse.    I am
+looking for an example like this one, which implements a network which
+learns the xor function using the FANN library.
+
+#include "fann.h"
+
+int main(int argc, char* argv[]) {
+   int ii;
+   struct fann* nn = 0;
+   fann_type input[2];
+   fann_type output[1];
+
+   nn = fann_create_standard(3, 2, 2, 1);
+   fann_randomize_weights(nn, -0.1, 0.1);
+   for(ii = 0; ii < 100000; ++ii) {
+      int aa,bb;
+      aa = ii % 2;
+      bb = (ii >> 1) % 2;
+      input[0] = aa;
+      input[1] = bb;
+      output[0] = aa ^ bb;
+      fann_train(nn, input, output);
+   }
+   for(ii = 0; ii < 4; ++ii) {
+      fann_type* out = 0;
+      input[0] = ii % 2;
+      input[1] = (ii >> 1) % 2;
+      out = fann_run(nn, input);
+      printf("%f ^ %f = %f\n", input[0], input[1], out[0]);
+   }
+}
+
+I cant really figure out what functions achieve the same effect in snns.
+
+
+From INFO at El-Ama.de  Fri Feb 29 09:58:15 2008
+From: INFO at El-Ama.de (Andre El-Ama)
+Date: Fri, 29 Feb 2008 09:58:15 +0100
+Subject: [Snns-dev-general] is there a howto on the C function
+	interfacesomewhere?
+In-Reply-To: <e26d18e40802281120r3c9d5498qf05d43df0f49b5c3@mail.gmail.com>
+References: <e26d18e40802272142m5708a5c9t71725620055eb131@mail.gmail.com>
+	<000301c879fe$395d9eb0$0a01a8c0@exxpertsystems8>
+	<e26d18e40802281120r3c9d5498qf05d43df0f49b5c3@mail.gmail.com>
+Message-ID: <000601c87ab1$39118a30$0a01a8c0@exxpertsystems8>
+
+
+>>  http://www.ra.cs.uni-tuebingen.de/downloads/SNNS/SNNSv4.2.Manual.pdf
+>>  (Chapter 13.14 page 281 - Snns2c)
+>>  (Chapter 14 page 290 - Kernel Functions)
+>
+>i've looked at the documentation, but it is really terse. 
+Maybe it is, but is the only way.
+
+Generate with the Snns2c the existing XOR-example to a C-file and than you
+get what you want.
+Additionaly you can use the Kernel-Funktions.
+
+That's it!
+
+Regards
+
+[Andr?]
+
+
+

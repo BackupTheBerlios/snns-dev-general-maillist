@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Snns-dev-general] is there a howto on the C function interface	somewhere?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/snns-dev-general/2008-March/index.html" >
+   <LINK REL="made" HREF="mailto:snns-dev-general%40lists.berlios.de?Subject=Re%3A%20%5BSnns-dev-general%5D%20is%20there%20a%20howto%20on%20the%20C%20function%20interface%0A%09somewhere%3F&In-Reply-To=%3C20080316193150.GA30094%40zaphod.anachem.ruhr-uni-bochum.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Snns-dev-general] is there a howto on the C function interface	somewhere?</H1>
+    <B>Patrick Kursawe</B> 
+    <A HREF="mailto:snns-dev-general%40lists.berlios.de?Subject=Re%3A%20%5BSnns-dev-general%5D%20is%20there%20a%20howto%20on%20the%20C%20function%20interface%0A%09somewhere%3F&In-Reply-To=%3C20080316193150.GA30094%40zaphod.anachem.ruhr-uni-bochum.de%3E"
+       TITLE="[Snns-dev-general] is there a howto on the C function interface	somewhere?">Patrick.Kursawe at web.de
+       </A><BR>
+    <I>Sun Mar 16 20:31:50 CET 2008</I>
+    <P><UL>
+        
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#29">[ date ]</a>
+              <a href="thread.html#29">[ thread ]</a>
+              <a href="subject.html#29">[ subject ]</a>
+              <a href="author.html#29">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Mi, Feb 27, 2008 at 08:58:39 -0800, Anatoly Yakovenko wrote:
+&gt;<i> i cant figure out how to use the C function interface to do something
+</I>&gt;<i> simple like:
+</I>&gt;<i> 
+</I>&gt;<i> create some neural network
+</I>&gt;<i> configure the training function
+</I>&gt;<i> 
+</I>&gt;<i> train it with some data
+</I>&gt;<i> 
+</I>&gt;<i> then test with some new data.
+</I>
+Sorry for answering so late...
+
+There is no &quot;cookbook&quot; I know of for the krui interface, but you can have a
+look at the examples for the Python bindings I wrote a few years ago like
+&quot;encodertest.py&quot; and &quot;som_cube_winners.py&quot;. The Python bindings follow the
+C interface very closely (except where it could be made a bit more
+comfortable), just watch out for all those &quot;krui.something()&quot; lines which
+tell you the functions you have to call and their order.
+
+Hope that helps,
+
+Patrick
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#29">[ date ]</a>
+              <a href="thread.html#29">[ thread ]</a>
+              <a href="subject.html#29">[ subject ]</a>
+              <a href="author.html#29">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/snns-dev-general">More information about the Snns-dev-general
+mailing list</a><br>
+</body></html>

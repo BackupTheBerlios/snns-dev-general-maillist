@@ -1,0 +1,78 @@
+From Patrick.Kursawe at web.de  Thu Nov 29 09:02:14 2007
+From: Patrick.Kursawe at web.de (Patrick Kursawe)
+Date: Thu, 29 Nov 2007 09:02:14 +0100
+Subject: [Snns-dev-general] Doubt about Seed in SNNS
+In-Reply-To: <20071121162544.ame2mahy8ko448s0@webcartero01.uc3m.es>
+References: <20071121162544.ame2mahy8ko448s0@webcartero01.uc3m.es>
+Message-ID: <20071129080214.GA26832@zaphod.anachem.ruhr-uni-bochum.de>
+
+On Mi, Nov 21, 2007 at 04:25:44 +0100, JUAN PERALTA DONATE wrote:
+> [...] I would 
+> like how you do to get a random initial seed for the weights in SNNS 
+> (SetSeed()), do you use date from Shell command of Linux?(in this is 
+> the case, how do you do it?), or do you use function time() form C?. To 
+> be honest the only thing i would need would be to know the maximum 
+> value that can take the random initial seed for the weights in SNNS. 
+
+I guess you mean the batchman function SetSeed - if you pass no
+argument or zero, it will use the current system time. The value
+you pass may be any 32 bit integer value.
+
+HTH,
+
+Patrick
+
+(Setting Reply-To to snns-dev-general at lists.berlios.de because this list
+isn't archieved).
+
+
+From jperalta at inf.uc3m.es  Thu Nov 29 11:18:50 2007
+From: jperalta at inf.uc3m.es (JUAN PERALTA DONATE)
+Date: Thu, 29 Nov 2007 11:18:50 +0100
+Subject: [Snns-dev-general] Doubt about Seed in SNNS
+In-Reply-To: <20071129080214.GA26832@zaphod.anachem.ruhr-uni-bochum.de>
+References: <20071121162544.ame2mahy8ko448s0@webcartero01.uc3m.es><20071129080214.GA26832@zaphod.anachem.ruhr-uni-bochum.de>
+Message-ID: <20071129111850.mtr4e6yag4k0gogw@webcartero01.uc3m.es>
+
+Dear Patrick, thank you very much for your time and your answer.
+
+> On Mi, Nov 21, 2007 at 04:25:44 +0100, JUAN PERALTA DONATE wrote:
+>> [...] I would
+>> like how you do to get a random initial seed for the weights in SNNS
+>> (SetSeed()), do you use date from Shell command of Linux?(in this is
+>> the case, how do you do it?), or do you use function time() form C?. To
+>> be honest the only thing i would need would be to know the maximum
+>> value that can take the random initial seed for the weights in SNNS.
+>
+> I guess you mean the batchman function SetSeed - if you pass no
+> argument or zero, it will use the current system time. The value
+> you pass may be any 32 bit integer value.
+>
+> HTH,
+>
+> Patrick
+>
+> (Setting Reply-To to snns-dev-general at lists.berlios.de because this list
+> isn't archieved).
+>
+>
+
+
+
+-- 
+Universidad Carlos III de Madrid
+
+
+
+From xprymasx at o2.pl  Fri Nov 30 13:33:48 2007
+From: xprymasx at o2.pl (xprymasx at o2.pl)
+Date: Fri, 30 Nov 2007 13:33:48 +0100
+Subject: [Snns-dev-general] =?utf-8?q?unsubscribe?=
+In-Reply-To: <20071129111850.mtr4e6yag4k0gogw@webcartero01.uc3m.es>
+References: <20071121162544.ame2mahy8ko448s0@webcartero01.uc3m.es><20071129080214.GA26832@zaphod.anachem.ruhr-uni-bochum.de>
+	<20071129111850.mtr4e6yag4k0gogw@webcartero01.uc3m.es>
+Message-ID: <18ce79f7.5685fe7c.4750032c.4950e@o2.pl>
+
+
+
+

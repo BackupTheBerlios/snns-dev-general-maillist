@@ -1,0 +1,1976 @@
+From tomek at mim.pcz.czest.pl  Wed Mar  2 11:10:15 2005
+From: tomek at mim.pcz.czest.pl (Tomasz Garstka)
+Date: Wed, 02 Mar 2005 11:10:15 +0100
+Subject: [Snns-dev-general] subscribe
+Message-ID: <42259107.8090108@mim.pcz.czest.pl>
+
+
+
+From Patrick.Kursawe at web.de  Wed Mar  2 12:43:51 2005
+From: Patrick.Kursawe at web.de (Patrick Kursawe)
+Date: Wed, 2 Mar 2005 12:43:51 +0100
+Subject: [Snns-dev-general] Re: Training DLVQ problems
+In-Reply-To: <674896dd77.6dd7767489@liu.se>
+References: <674896dd77.6dd7767489@liu.se>
+Message-ID: <20050302114351.GB31778@zaphod.anachem.ruhr-uni-bochum.de>
+
+On Tue, Mar 01, 2005 at 10:19:49PM +0100, Eduardo Llanos Puga wrote:
+> Thanks for the tip but it doesn?t seem to work. 
+> It only trains as if cycles is set to 1. It seems to ignore the last parameter... 
+
+(tip was:)
+> Try setting the learning parameters using
+> setLearnFunc("Dynamic_LVQ",par1,par2,TrainingCycles,THIS_IS_CYCLES).
+
+Please try the attached batch file with the example net/patterns from the
+original SNNS distribution. Works fine for me and gives different results
+depending on the last parameter.
+
+Bye, Patrick
+-------------- next part --------------
+loadNet("dlvq_ziff_untrained.net")
+loadPattern("dlvq_ziff_100.pat")
+setUpdateFunc("Dynamic_LVQ")
+setInitFunc("DLVQ_Weights")
+setLearnFunc("Dynamic_LVQ",0.03,0.03,10,42)
+initNet()
+trainNet()
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 189 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/snns-dev-general/attachments/20050302/1c0489eb/attachment.pgp>
+
+From edull165 at student.liu.se  Thu Mar  3 12:37:13 2005
+From: edull165 at student.liu.se (Eduardo Llanos Puga)
+Date: Thu, 03 Mar 2005 12:37:13 +0100
+Subject: [Snns-dev-general] Batchman using "execute" question
+Message-ID: <159f6a1563ce.1563ce159f6a@liu.se>
+
+Hi all!
+
+Do anybody know how to use "execute" when running Batchman under WindowsXp? Does it only work for the SNNS "internal" functions as "analyze", "snns2c"? 
+
+Is it only built to accept UNIX commands?
+
+Thanks for the help! 
+
+Eduardo Llanos. 
+IMT, University of Link?ping, Sweden.   
+
+
+
+From Patrick.Kursawe at web.de  Thu Mar  3 12:43:47 2005
+From: Patrick.Kursawe at web.de (Patrick Kursawe)
+Date: Thu, 3 Mar 2005 12:43:47 +0100
+Subject: [Snns-dev-general] Batchman using "execute" question
+In-Reply-To: <159f6a1563ce.1563ce159f6a@liu.se>
+References: <159f6a1563ce.1563ce159f6a@liu.se>
+Message-ID: <20050303114347.GA2768@zaphod.anachem.ruhr-uni-bochum.de>
+
+On Thu, Mar 03, 2005 at 12:37:13PM +0100, Eduardo Llanos Puga wrote:
+> Do anybody know how to use "execute" when running Batchman under
+> WindowsXp? Does it only work for the SNNS "internal" functions as
+> "analyze", "snns2c"? 
+> 
+> Is it only built to accept UNIX commands?
+
+As far as I can tell, the SNNS "internal" functions are also just plain
+simple ordinary executables. So it should be possible to call anything else
+that's in your %PATH%.
+
+Bye, Patrick
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 189 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/snns-dev-general/attachments/20050303/c07d9396/attachment.pgp>
+
+From INFO at El-Ama.de  Thu Mar  3 13:02:32 2005
+From: INFO at El-Ama.de (Andre El-Ama)
+Date: Thu, 3 Mar 2005 13:02:32 +0100
+Subject: [Snns-dev-general] Batchman using "execute" question
+In-Reply-To: <159f6a1563ce.1563ce159f6a@liu.se>
+Message-ID: <MIEKJEJOFNDPHFFGPMPOOEMJCPAA.INFO@El-Ama.de>
+
+Hi Eduardo,
+
+you have to understand that your return values are inside of variables. Like
+in other OS too
+
+try this construct inside your bat-file (e.g. "test.bat") file:
+
+execute("vol",s1, s2, s3, s4, s5,s6,s7,s8)
+print (s1, s2, s3, s4, s5,s6,s7,s8)
+
+start this with batchman -f test.bat.
+
+something like:
+
+Datentr?gerinLaufwerkF:istworkDatentr?gernummer:5C77-B2D6
+
+Is the result (just in English)
+
+You need as many variables as you expect string values as return from your
+(dos)shell command.
+
+Tell us if you have success or not.
+
+regards
+
+[Andr? El-Ama]
+
+
+-----Original Message-----
+From: snns-dev-general-admin at berlios.de
+[mailto:snns-dev-general-admin at berlios.de]On Behalf Of Eduardo Llanos Puga
+Sent: Thursday, March 03, 2005 12:37 PM
+To: snns-dev-general at lists.berlios.de
+Subject: [Snns-dev-general] Batchman using "execute" question
+
+Hi all!
+
+Do anybody know how to use "execute" when running Batchman under WindowsXp?
+Does it only work for the SNNS "internal" functions as "analyze", "snns2c"?
+
+Is it only built to accept UNIX commands?
+
+Thanks for the help!
+
+Eduardo Llanos.
+IMT, University of Link?ping, Sweden.
+
+_______________________________________________
+Snns-dev-general mailing list
+Snns-dev-general at lists.berlios.de
+http://lists.berlios.de/mailman/listinfo/snns-dev-general
+
+
+
+From Patrick.Kursawe at web.de  Thu Mar  3 14:43:44 2005
+From: Patrick.Kursawe at web.de (Patrick Kursawe)
+Date: Thu, 3 Mar 2005 14:43:44 +0100
+Subject: [Snns-dev-general] Re: Training DLVQ problems
+In-Reply-To: <20050302114351.GB31778@zaphod.anachem.ruhr-uni-bochum.de>
+References: <674896dd77.6dd7767489@liu.se> <20050302114351.GB31778@zaphod.anachem.ruhr-uni-bochum.de>
+Message-ID: <20050303134344.GC2848@zaphod.anachem.ruhr-uni-bochum.de>
+
+Little correction to what I wrote earlier:
+
+On Wed, Mar 02, 2005 at 12:43:51PM +0100, Patrick Kursawe wrote:
+> On Tue, Mar 01, 2005 at 10:19:49PM +0100, Eduardo Llanos Puga wrote:
+> > Thanks for the tip but it doesn?t seem to work. 
+> > It only trains as if cycles is set to 1. It seems to ignore the last parameter... 
+> 
+> (tip was:)
+> > Try setting the learning parameters using
+> > setLearnFunc("Dynamic_LVQ",par1,par2,TrainingCycles,THIS_IS_CYCLES).
+> 
+> Please try the attached batch file with the example net/patterns from the
+> original SNNS distribution. Works fine for me and gives different results
+> depending on the last parameter.
+> 
+> Bye, Patrick
+
+> loadNet("dlvq_ziff_untrained.net")
+> loadPattern("dlvq_ziff_100.pat")
+> setUpdateFunc("Dynamic_LVQ")
+> setInitFunc("DLVQ_Weights")
+> setLearnFunc("Dynamic_LVQ",0.03,0.03,10,42)
+> initNet()
+> trainNet()
+
+The above trainNet() is not sufficient.
+You must run it in a loop to get the desired results.
+
+For example:
+setLearnFunc("Dynamic_LVQ",0.0,0.0,10,3)
+(0.0 to make sure learning is not successful)
+
+for num := 0 to 50 do
+ trainNet()
+endfor	
+
+Gives a maximum of 3 hidden units per class.
+
+Bye, Patrick
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 189 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/snns-dev-general/attachments/20050303/21b50ffb/attachment.pgp>
+
+From Armida.DiFenza at ipcf.cnr.it  Thu Mar 10 14:40:12 2005
+From: Armida.DiFenza at ipcf.cnr.it (Armida Di Fenza)
+Date: Thu, 10 Mar 2005 05:40:12 -0800
+Subject: [Snns-dev-general] problems with snns-4.2-20040227.patch
+Message-ID: <42304E3C.179DA87A@ipcf.cnr.it>
+
+Dear Developers,
+
+dear users,
+
+
+I patched SNNSv4.2 following the instructions in the SNNS-development
+homepage, using the snns-4.2-20040227.patch, on my Irix64 6.5. I then
+proceeded to configure and install SNNS. I had no problem during
+configuration but when I tried to install, I got the following error
+message:
+
+hannibal 33% make install
+        cd tools/sources && make install-strip
+make: file `Makefile' line 31: Must be a separator (: or ::) for rules
+(bu39)
+make: file `Makefile' line 31: Syntax error
+*** Error code 1 (bu21)
+
+This error only appear after patching. Here is the outputs of the
+patching operation:
+
+
+hannibal 31% patch -p0 <snns-4.2-20040227.patch
+Hmm...  Looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|Nur in SNNSv4.2-patched: autom4te.cache.
+|Nur in SNNSv4.2-patched: config.cache.
+|Nur in SNNSv4.2-patched: config.log.
+|diff -ru SNNSv4.2/configure SNNSv4.2-patched/configure
+|--- SNNSv4.2/configure 1998-09-03 15:44:28.000000000 +0200
+|+++ SNNSv4.2-patched/configure 2004-02-24 14:33:32.569070466 +0100
+--------------------------
+File to patch: configure
+Patching file configure using Plan A...
+Hunk #1 succeeded at 1.
+Hunk #2 succeeded at 330.
+Hunk #3 succeeded at 352.
+Hunk #4 succeeded at 362.
+Hunk #5 succeeded at 423.
+Hunk #6 succeeded at 472.
+Hunk #7 succeeded at 498.
+Hunk #8 succeeded at 534.
+Hunk #9 succeeded at 544.
+Hunk #10 succeeded at 555.
+Hunk #11 succeeded at 616.
+Hunk #12 succeeded at 729.
+Hunk #13 succeeded at 1215.
+Hunk #14 succeeded at 1325.
+Hunk #15 succeeded at 1339.
+Hunk #16 succeeded at 1448.
+Hunk #17 succeeded at 1474.
+Hunk #18 succeeded at 3016.
+Hunk #19 succeeded at 3228.
+Hunk #20 succeeded at 4393.
+Hunk #21 succeeded at 4696.
+Hunk #22 succeeded at 4746.
+Hunk #23 succeeded at 5190.
+Hunk #24 succeeded at 5211.
+Hunk #25 succeeded at 6400.
+Hunk #26 succeeded at 6462.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ru SNNSv4.2/kernel/sources/kr_mem.c
+SNNSv4.2-patched/kernel/sources/kr_mem.c
+|--- SNNSv4.2/kernel/sources/kr_mem.c   1998-09-03 15:38:16.000000000
++0200
+|+++ SNNSv4.2-patched/kernel/sources/kr_mem.c   2004-02-24
+14:01:29.744318302 +0100
+--------------------------
+File to patch: kernel/sources/kr_mem.c
+Patching file kernel/sources/kr_mem.c using Plan A...
+Hunk #1 succeeded at 27.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ru SNNSv4.2/kernel/sources/learn_f.c
+SNNSv4.2-patched/kernel/sources/learn_f.c
+|--- SNNSv4.2/kernel/sources/learn_f.c  1998-09-03 15:38:22.000000000
++0200
+|+++ SNNSv4.2-patched/kernel/sources/learn_f.c  2004-02-24
+14:01:29.753315362 +0100
+--------------------------
+File to patch: kernel/sources/learn_f.c
+Patching file kernel/sources/learn_f.c using Plan A...
+Hunk #1 succeeded at 36.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ru SNNSv4.2/kernel/sources/Makefile
+SNNSv4.2-patched/kernel/sources/Makefile
+|--- SNNSv4.2/kernel/sources/Makefile   1998-09-03 15:38:00.000000000
++0200
+|+++ SNNSv4.2-patched/kernel/sources/Makefile   2004-02-24
+14:01:29.755314709 +0100
+--------------------------
+File to patch: kernel/sources/Makefil
+No file found--skip this patch? [n]
+File to patch: kernel/sources/Makefile
+Patching file kernel/sources/Makefile using Plan A...
+Hunk #1 succeeded at 49.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ru SNNSv4.2/tools/sources/Makefile
+SNNSv4.2-patched/tools/sources/Makefile
+|--- SNNSv4.2/tools/sources/Makefile    1998-09-03 15:37:47.000000000
++0200
+|+++ SNNSv4.2-patched/tools/sources/Makefile    2004-02-24
+14:01:29.756314382 +0100
+--------------------------
+File to patch: tools/sources/Makefile
+Patching file tools/sources/Makefile using Plan A...
+Hunk #1 succeeded at 26.
+Hunk #2 succeeded at 177.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ru SNNSv4.2/xgui/sources/Makefile
+SNNSv4.2-patched/xgui/sources/Makefile
+|--- SNNSv4.2/xgui/sources/Makefile     1998-09-03 15:39:03.000000000
++0200
+|+++ SNNSv4.2-patched/xgui/sources/Makefile     2004-02-24
+14:01:29.759313402 +0100
+--------------------------
+File to patch: xgui/sources/Makefile
+Patching file xgui/sources/Makefile using Plan A...
+Hunk #1 succeeded at 26.
+Hunk #2 succeeded at 203.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ru SNNSv4.2/xgui/sources/ui_config.c
+SNNSv4.2-patched/xgui/sources/ui_config.c
+|--- SNNSv4.2/xgui/sources/ui_config.c  1998-09-03 15:39:32.000000000
++0200
+|+++ SNNSv4.2-patched/xgui/sources/ui_config.c  2004-02-24
+14:01:29.760313076 +0100
+--------------------------
+File to patch: xgui/sources/ui_config.c
+Patching file xgui/sources/ui_config.c using Plan A...
+Hunk #1 succeeded at 492.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ru SNNSv4.2/xgui/sources/ui_file.ph
+SNNSv4.2-patched/xgui/sources/ui_file.ph
+|--- SNNSv4.2/xgui/sources/ui_file.ph   1998-09-03 15:39:38.000000000
++0200
+|+++ SNNSv4.2-patched/xgui/sources/ui_file.ph   2004-02-24
+14:01:29.761312749 +0100
+--------------------------
+File to patch: xgui/sources/ui_file.ph
+Patching file xgui/sources/ui_file.ph using Plan A...
+Hunk #1 succeeded at 41.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|diff -ru SNNSv4.2/xgui/sources/ui.h SNNSv4.2-patched/xgui/sources/ui.h
+|--- SNNSv4.2/xgui/sources/ui.h 1998-09-03 15:39:22.000000000 +0200
+|+++ SNNSv4.2-patched/xgui/sources/ui.h 2004-02-24 14:01:29.763312096
++0100
+--------------------------
+File to patch: xgui/sources/ui.h
+Patching file xgui/sources/ui.h using Plan A...
+Hunk #1 succeeded at 21.
+Hunk #2 succeeded at 66.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- SNNSv4.2/kernel/sources/kr_mem.c   2004-02-25 10:56:42.171875000
++0000
+|+++ SNNSv4.2-patched/kernel/sources/kr_mem.c   2004-02-25
+11:00:56.484375000 +0000
+--------------------------
+File to patch: kernel/sources/kr_mem.c
+Patching file kernel/sources/kr_mem.c using Plan A...
+Hunk #1 succeeded at 37.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- SNNSv4.2/tools/sources/snnsbat.c   1998-09-03 13:37:58.000000000
++0000
+|+++ SNNSv4.2-patched/tools/sources/snnsbat.c   2004-02-25
+11:04:04.828125000 +0000
+--------------------------
+File to patch: tools/sources/snnsbat.c
+Patching file tools/sources/snnsbat.c using Plan A...
+Hunk #1 succeeded at 39.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- SNNSv4.2/tools/sources/symtab.c    1998-09-03 15:37:59.000000000
++0200
+|+++ SNNSv4.2-patched/tools/sources/symtab.c    2004-02-25
+11:29:26.000000000 +0100
+--------------------------
+File to patch: tools/sources/symtab.c
+Patching file tools/sources/symtab.c using Plan A...
+Hunk #1 succeeded at 32.
+Hmm...  The next patch looks like a unified diff to me...
+The text leading up to this was:
+--------------------------
+|--- SNNSv4.2/kernel/sources/init_f.c   1998-09-03 13:38:08.000000000
++0000
+|+++ SNNSv4.2-patched/kernel/sources/init_f.c   2004-02-27
+11:14:03.968750000 +0000
+--------------------------
+File to patch: kernel/sources/init_f.c
+Patching file kernel/sources/init_f.c using Plan A...
+Hunk #1 succeeded at 62.
+done
+
+
+May you give me any suggestion about what to do in order to avoid this
+problem?
+
+Thank you very much,
+
+Armida
+
+
+
+From Patrick.Kursawe at web.de  Thu Mar 10 15:35:03 2005
+From: Patrick.Kursawe at web.de (Patrick Kursawe)
+Date: Thu, 10 Mar 2005 15:35:03 +0100
+Subject: [Snns-dev-general] problems with snns-4.2-20040227.patch
+In-Reply-To: <42304E3C.179DA87A@ipcf.cnr.it>
+References: <42304E3C.179DA87A@ipcf.cnr.it>
+Message-ID: <20050310143503.GA28326@zaphod.anachem.ruhr-uni-bochum.de>
+
+On Thu, Mar 10, 2005 at 05:40:12AM -0800, Armida Di Fenza wrote:
+> I had no problem during
+> configuration but when I tried to install, I got the following error
+> message:
+> 
+> hannibal 33% make install
+>         cd tools/sources && make install-strip
+> make: file `Makefile' line 31: Must be a separator (: or ::) for rules
+> (bu39)
+
+Most likely you are not using GNU make but Irix make?
+I am not familiar with the Makefile syntax for Irix, so it would be nice if
+you could grab your text editor and try to fix that line. Perhaps it does
+not support the "+=" for variables, please try replacing that by a "=".
+
+Bye, Patrick
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 189 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/snns-dev-general/attachments/20050310/a936d01b/attachment.pgp>
+
+From Andre at El-Ama.de  Thu Mar 10 17:27:56 2005
+From: Andre at El-Ama.de (Andre El-Ama)
+Date: Thu, 10 Mar 2005 17:27:56 +0100
+Subject: [Snns-dev-general] Re: problems with snns-4.2-20040227.patch
+In-Reply-To: <42304E3C.179DA87A@ipcf.cnr.it>
+References: <42304E3C.179DA87A@ipcf.cnr.it>
+Message-ID: <1110471922.6574.44.camel@cosmo.local>
+
+Hallo Armida,
+
+to avoid another error source. Please just take one of the following
+commands for your configuration:
+
+	--quiet           suppress most of the configuration messages
+	--enable-global   use global installation path --prefix
+	--prefix          path for global installation
+	--x-includes      alternative path for X include files
+	--x-libraries     alternative path for X libraries
+	--no-create       test run, don't change any output files
+	
+e.g.like
+
+	configure
+	-> will install to <SNNSDIR>/[tools|xgui]/bin/<HOST>
+
+	configure --enable-global
+	-> will install to /usr/local/bin
+
+	configure --enable-global --prefix /home/yourdir
+	-> will install to /home/yourdir/bin
+
+
+!!! Do not try to install ENZO !!!
+
+
+It is just compatible with SNNS4.1 and we [snns-dev] don't support it
+until now!
+
+regards and good luck!
+
+[Andre El-Ama]
+
+
+Am Do, 2005-03-10 um 14.40 schrieb Armida Di Fenza:
+> Dear Developers,
+> 
+> dear users,
+> 
+> 
+> I patched SNNSv4.2 following the instructions in the SNNS-development
+> homepage, using the snns-4.2-20040227.patch, on my Irix64 6.5. I then
+> proceeded to configure and install SNNS. I had no problem during
+> configuration but when I tried to install, I got the following error
+> message:
+> 
+> hannibal 33% make install
+>         cd tools/sources && make install-strip
+> make: file `Makefile' line 31: Must be a separator (: or ::) for rules
+> (bu39)
+> make: file `Makefile' line 31: Syntax error
+> *** Error code 1 (bu21)
+> 
+> This error only appear after patching. Here is the outputs of the
+> patching operation:
+> 
+> 
+> hannibal 31% patch -p0 <snns-4.2-20040227.patch
+> Hmm...  Looks like a unified diff to me...
+> The text leading up to this was:
+> --------------------------
+> |Nur in SNNSv4.2-patched: autom4te.cache.
+> |Nur in SNNSv4.2-patched: config.cache.
+> |Nur in SNNSv4.2-patched: config.log.
+> |diff -ru SNNSv4.2/configure SNNSv4.2-patched/configure
+> |--- SNNSv4.2/configure 1998-09-03 15:44:28.000000000 +0200
+> |+++ SNNSv4.2-patched/configure 2004-02-24 14:33:32.569070466 +0100
+> --------------------------
+> File to patch: configure
+> Patching file configure using Plan A...
+> Hunk #1 succeeded at 1.
+> Hunk #2 succeeded at 330.
+> Hunk #3 succeeded at 352.
+> Hunk #4 succeeded at 362.
+> Hunk #5 succeeded at 423.
+> Hunk #6 succeeded at 472.
+> Hunk #7 succeeded at 498.
+> Hunk #8 succeeded at 534.
+> Hunk #9 succeeded at 544.
+> Hunk #10 succeeded at 555.
+> Hunk #11 succeeded at 616.
+> Hunk #12 succeeded at 729.
+> Hunk #13 succeeded at 1215.
+> Hunk #14 succeeded at 1325.
+> Hunk #15 succeeded at 1339.
+> Hunk #16 succeeded at 1448.
+> Hunk #17 succeeded at 1474.
+> Hunk #18 succeeded at 3016.
+> Hunk #19 succeeded at 3228.
+> Hunk #20 succeeded at 4393.
+> Hunk #21 succeeded at 4696.
+> Hunk #22 succeeded at 4746.
+> Hunk #23 succeeded at 5190.
+> Hunk #24 succeeded at 5211.
+> Hunk #25 succeeded at 6400.
+> Hunk #26 succeeded at 6462.
+> Hmm...  The next patch looks like a unified diff to me...
+> The text leading up to this was:
+> --------------------------
+> |diff -ru SNNSv4.2/kernel/sources/kr_mem.c
+> SNNSv4.2-patched/kernel/sources/kr_mem.c
+> |--- SNNSv4.2/kernel/sources/kr_mem.c   1998-09-03 15:38:16.000000000
+> +0200
+> |+++ SNNSv4.2-patched/kernel/sources/kr_mem.c   2004-02-24
+> 14:01:29.744318302 +0100
+> --------------------------
+> File to patch: kernel/sources/kr_mem.c
+> Patching file kernel/sources/kr_mem.c using Plan A...
+> Hunk #1 succeeded at 27.
+> Hmm...  The next patch looks like a unified diff to me...
+> The text leading up to this was:
+> --------------------------
+> |diff -ru SNNSv4.2/kernel/sources/learn_f.c
+> SNNSv4.2-patched/kernel/sources/learn_f.c
+> |--- SNNSv4.2/kernel/sources/learn_f.c  1998-09-03 15:38:22.000000000
+> +0200
+> |+++ SNNSv4.2-patched/kernel/sources/learn_f.c  2004-02-24
+> 14:01:29.753315362 +0100
+> --------------------------
+> File to patch: kernel/sources/learn_f.c
+> Patching file kernel/sources/learn_f.c using Plan A...
+> Hunk #1 succeeded at 36.
+> Hmm...  The next patch looks like a unified diff to me...
+> The text leading up to this was:
+> --------------------------
+> |diff -ru SNNSv4.2/kernel/sources/Makefile
+> SNNSv4.2-patched/kernel/sources/Makefile
+> |--- SNNSv4.2/kernel/sources/Makefile   1998-09-03 15:38:00.000000000
+> +0200
+> |+++ SNNSv4.2-patched/kernel/sources/Makefile   2004-02-24
+> 14:01:29.755314709 +0100
+> --------------------------
+> File to patch: kernel/sources/Makefil
+> No file found--skip this patch? [n]
+> File to patch: kernel/sources/Makefile
+> Patching file kernel/sources/Makefile using Plan A...
+> Hunk #1 succeeded at 49.
+> Hmm...  The next patch looks like a unified diff to me...
+> The text leading up to this was:
+> --------------------------
+> |diff -ru SNNSv4.2/tools/sources/Makefile
+> SNNSv4.2-patched/tools/sources/Makefile
+> |--- SNNSv4.2/tools/sources/Makefile    1998-09-03 15:37:47.000000000
+> +0200
+> |+++ SNNSv4.2-patched/tools/sources/Makefile    2004-02-24
+> 14:01:29.756314382 +0100
+> --------------------------
+> File to patch: tools/sources/Makefile
+> Patching file tools/sources/Makefile using Plan A...
+> Hunk #1 succeeded at 26.
+> Hunk #2 succeeded at 177.
+> Hmm...  The next patch looks like a unified diff to me...
+> The text leading up to this was:
+> --------------------------
+> |diff -ru SNNSv4.2/xgui/sources/Makefile
+> SNNSv4.2-patched/xgui/sources/Makefile
+> |--- SNNSv4.2/xgui/sources/Makefile     1998-09-03 15:39:03.000000000
+> +0200
+> |+++ SNNSv4.2-patched/xgui/sources/Makefile     2004-02-24
+> 14:01:29.759313402 +0100
+> --------------------------
+> File to patch: xgui/sources/Makefile
+> Patching file xgui/sources/Makefile using Plan A...
+> Hunk #1 succeeded at 26.
+> Hunk #2 succeeded at 203.
+> Hmm...  The next patch looks like a unified diff to me...
+> The text leading up to this was:
+> --------------------------
+> |diff -ru SNNSv4.2/xgui/sources/ui_config.c
+> SNNSv4.2-patched/xgui/sources/ui_config.c
+> |--- SNNSv4.2/xgui/sources/ui_config.c  1998-09-03 15:39:32.000000000
+> +0200
+> |+++ SNNSv4.2-patched/xgui/sources/ui_config.c  2004-02-24
+> 14:01:29.760313076 +0100
+> --------------------------
+> File to patch: xgui/sources/ui_config.c
+> Patching file xgui/sources/ui_config.c using Plan A...
+> Hunk #1 succeeded at 492.
+> Hmm...  The next patch looks like a unified diff to me...
+> The text leading up to this was:
+> --------------------------
+> |diff -ru SNNSv4.2/xgui/sources/ui_file.ph
+> SNNSv4.2-patched/xgui/sources/ui_file.ph
+> |--- SNNSv4.2/xgui/sources/ui_file.ph   1998-09-03 15:39:38.000000000
+> +0200
+> |+++ SNNSv4.2-patched/xgui/sources/ui_file.ph   2004-02-24
+> 14:01:29.761312749 +0100
+> --------------------------
+> File to patch: xgui/sources/ui_file.ph
+> Patching file xgui/sources/ui_file.ph using Plan A...
+> Hunk #1 succeeded at 41.
+> Hmm...  The next patch looks like a unified diff to me...
+> The text leading up to this was:
+> --------------------------
+> |diff -ru SNNSv4.2/xgui/sources/ui.h SNNSv4.2-patched/xgui/sources/ui.h
+> |--- SNNSv4.2/xgui/sources/ui.h 1998-09-03 15:39:22.000000000 +0200
+> |+++ SNNSv4.2-patched/xgui/sources/ui.h 2004-02-24 14:01:29.763312096
+> +0100
+> --------------------------
+> File to patch: xgui/sources/ui.h
+> Patching file xgui/sources/ui.h using Plan A...
+> Hunk #1 succeeded at 21.
+> Hunk #2 succeeded at 66.
+> Hmm...  The next patch looks like a unified diff to me...
+> The text leading up to this was:
+> --------------------------
+> |--- SNNSv4.2/kernel/sources/kr_mem.c   2004-02-25 10:56:42.171875000
+> +0000
+> |+++ SNNSv4.2-patched/kernel/sources/kr_mem.c   2004-02-25
+> 11:00:56.484375000 +0000
+> --------------------------
+> File to patch: kernel/sources/kr_mem.c
+> Patching file kernel/sources/kr_mem.c using Plan A...
+> Hunk #1 succeeded at 37.
+> Hmm...  The next patch looks like a unified diff to me...
+> The text leading up to this was:
+> --------------------------
+> |--- SNNSv4.2/tools/sources/snnsbat.c   1998-09-03 13:37:58.000000000
+> +0000
+> |+++ SNNSv4.2-patched/tools/sources/snnsbat.c   2004-02-25
+> 11:04:04.828125000 +0000
+> --------------------------
+> File to patch: tools/sources/snnsbat.c
+> Patching file tools/sources/snnsbat.c using Plan A...
+> Hunk #1 succeeded at 39.
+> Hmm...  The next patch looks like a unified diff to me...
+> The text leading up to this was:
+> --------------------------
+> |--- SNNSv4.2/tools/sources/symtab.c    1998-09-03 15:37:59.000000000
+> +0200
+> |+++ SNNSv4.2-patched/tools/sources/symtab.c    2004-02-25
+> 11:29:26.000000000 +0100
+> --------------------------
+> File to patch: tools/sources/symtab.c
+> Patching file tools/sources/symtab.c using Plan A...
+> Hunk #1 succeeded at 32.
+> Hmm...  The next patch looks like a unified diff to me...
+> The text leading up to this was:
+> --------------------------
+> |--- SNNSv4.2/kernel/sources/init_f.c   1998-09-03 13:38:08.000000000
+> +0000
+> |+++ SNNSv4.2-patched/kernel/sources/init_f.c   2004-02-27
+> 11:14:03.968750000 +0000
+> --------------------------
+> File to patch: kernel/sources/init_f.c
+> Patching file kernel/sources/init_f.c using Plan A...
+> Hunk #1 succeeded at 62.
+> done
+> 
+> 
+> May you give me any suggestion about what to do in order to avoid this
+> problem?
+> 
+> Thank you very much,
+> 
+> Armida
+
+
+
+
+From Armida.DiFenza at ipcf.cnr.it  Thu Mar 10 18:07:35 2005
+From: Armida.DiFenza at ipcf.cnr.it (Armida Di Fenza)
+Date: Thu, 10 Mar 2005 09:07:35 -0800
+Subject: [Snns-dev-general] Re: problems with snns-4.2-20040227.patch
+Message-ID: <42307ED7.62A7858E@ipcf.cnr.it>
+
+Dear Patrick,
+
+Dear Andre,
+
+thank you for your help. I actually was able to overcome the problem due
+to the +=, just deleting the +, as Patrick suggested. The problem now is
+that the installation stopped cause it was looking for the Xaw3d
+library, which I didn't build because I found it very difficult to do. I
+hoped was not absolutely necessary to build the Xaw3d library, but it
+seems is not the case, or there is a way to get anyway the patched
+installation working? 
+
+The following is the error message that I get:
+
+
+ar  rc  lib3d.a net_analyzer.o  d3_xUtils.o  d3_global.o  d3_anageo.o 
+d3_shade.o  d3_lists.o  d3_point.o  d3_dither.o  d3_zgraph.o 
+d3_fonts.o  d3_graph.o  d3_draw.o  d3_disp.o  d3_move.o  d3_zValue.o 
+d3_setup.o  d3_units.o  d3_links.o  d3_model.o  d3_project.o 
+d3_light.o  d3_pannels.o  d3_main.o  bn_bignet.o  bn_basics.o 
+bn_art1.o  bn_art2.o  bn_artmap.o  bn_TD_bignet.o  bn_kohonen.o 
+bn_assoz.o  o_graph.o  bn_JordElm.o  ui_class.o  bn_bighop.o
+        :  lib3d.a
+        gcc  libxgui1.a libxgui2.a lib3d.a \
+         -lXaw3d -lXmu -lXt -lXext -lSM -lICE  -lX11  \
+        ../../kernel/sources/libkernel.a  ../../kernel/sources/libfunc.a
+-lm -ll  -o xgui 
+ld32: FATAL 9: I/O error (-lXaw3d): No such file or directory
+collect2: ld returned 32 exit status
+*** Error code 1 (bu21)
+*** Error code 1 (bu21)
+*** Error code 1 (bu21)
+
+
+Thanks, Armida
+
+
+From INFO at El-Ama.de  Thu Mar 10 18:32:17 2005
+From: INFO at El-Ama.de (INFO at El-Ama.de)
+Date: Thu, 10 Mar 2005 18:32:17 +0100
+Subject: [Snns-dev-general] Re: problems with snns-4.2-20040227.patch
+In-Reply-To: <42307ED7.62A7858E@ipcf.cnr.it>
+References: <42307ED7.62A7858E@ipcf.cnr.it>
+Message-ID: <1110475902.6574.71.camel@cosmo.local>
+
+Hallo Armida,
+
+it is absolutly neccesary to have the Xaw3d installed to use the GUI of
+the SNNS. Most LINUX destributions will do that during the normal X11
+installation. It seem that IRIX don't.
+
+
+A link to the latest version:
+
+http://www.visi.com/~hawkeyd/xaw3d.html
+
+and here are an installation intruction especially for IRIX:
+
+http://freeware.sgi.com/Installable/Xaw3d-1.5.html
+
+I think you will have success!
+
+regards
+
+[Andre El-Ama]  
+
+
+Am Do, 2005-03-10 um 18.07 schrieb Armida Di Fenza:
+> Dear Patrick,
+> 
+> Dear Andre,
+> 
+> thank you for your help. I actually was able to overcome the problem due
+> to the +=, just deleting the +, as Patrick suggested. The problem now is
+> that the installation stopped cause it was looking for the Xaw3d
+> library, which I didn't build because I found it very difficult to do. I
+> hoped was not absolutely necessary to build the Xaw3d library, but it
+> seems is not the case, or there is a way to get anyway the patched
+> installation working? 
+> 
+> The following is the error message that I get:
+> 
+> 
+> ar  rc  lib3d.a net_analyzer.o  d3_xUtils.o  d3_global.o  d3_anageo.o 
+> d3_shade.o  d3_lists.o  d3_point.o  d3_dither.o  d3_zgraph.o 
+> d3_fonts.o  d3_graph.o  d3_draw.o  d3_disp.o  d3_move.o  d3_zValue.o 
+> d3_setup.o  d3_units.o  d3_links.o  d3_model.o  d3_project.o 
+> d3_light.o  d3_pannels.o  d3_main.o  bn_bignet.o  bn_basics.o 
+> bn_art1.o  bn_art2.o  bn_artmap.o  bn_TD_bignet.o  bn_kohonen.o 
+> bn_assoz.o  o_graph.o  bn_JordElm.o  ui_class.o  bn_bighop.o
+>         :  lib3d.a
+>         gcc  libxgui1.a libxgui2.a lib3d.a \
+>          -lXaw3d -lXmu -lXt -lXext -lSM -lICE  -lX11  \
+>         ../../kernel/sources/libkernel.a  ../../kernel/sources/libfunc.a
+> -lm -ll  -o xgui 
+> ld32: FATAL 9: I/O error (-lXaw3d): No such file or directory
+> collect2: ld returned 32 exit status
+> *** Error code 1 (bu21)
+> *** Error code 1 (bu21)
+> *** Error code 1 (bu21)
+> 
+> 
+> Thanks, Armida
+> _______________________________________________
+> Snns-dev-general mailing list
+> Snns-dev-general at lists.berlios.de
+> http://lists.berlios.de/mailman/listinfo/snns-dev-general
+
+
+
+From Armida.DiFenza at ipcf.cnr.it  Thu Mar 10 20:22:04 2005
+From: Armida.DiFenza at ipcf.cnr.it (Armida Di Fenza)
+Date: Thu, 10 Mar 2005 11:22:04 -0800
+Subject: [Snns-dev-general] problems with snns-4.2-20040227.patch]
+Message-ID: <42309E5C.8962A612@ipcf.cnr.it>
+
+Dear Andre,
+
+now it is a bit better, I installed the Waw3d, but still the
+installation stop:
+
+
+ar  rc  lib3d.a net_analyzer.o  d3_xUtils.o  d3_global.o  d3_anageo.o 
+d3_shade.o  d3_lists.o  d3_point.o  d3_dither.o  d3_zgraph.o 
+d3_fonts.o  d3_graph.o  d3_draw.o  d3_disp.o  d3_move.o  d3_zValue.o 
+d3_setup.o  d3_units.o  d3_links.o  d3_model.o  d3_project.o 
+d3_light.o  d3_pannels.o  d3_main.o  bn_bignet.o  bn_basics.o 
+bn_art1.o  bn_art2.o  bn_artmap.o  bn_TD_bignet.o  bn_kohonen.o 
+bn_assoz.o  o_graph.o  bn_JordElm.o  ui_class.o  bn_bighop.o
+        :  lib3d.a
+        gcc  libxgui1.a libxgui2.a lib3d.a \
+         -lXaw3d -lXmu -lXt -lXext -lSM -lICE  -lX11  \
+        ../../kernel/sources/libkernel.a  ../../kernel/sources/libfunc.a
+-lm -ll  -o xgui 
+ld32: FATAL 12: Expecting n32 objects:
+/usr/freeware/lib/gcc-lib/mips-sgi-irix6.5/3.0.4/../../../libXaw3d.so is
+o32.
+collect2: ld returned 4 exit status
+*** Error code 1 (bu21)
+*** Error code 1 (bu21)
+*** Error code 1 (bu21)
+
+I guess the reason is that it is not able to see the new 32 n32, because
+it goes to /usr/freeware/lib/ instead of going to /usr/freeware/lib32.
+How may I tell him to go there to find the right lib?
+
+Thanks for your help and greetings from Italy,
+
+Armida
+
+
+From INFO at El-Ama.de  Thu Mar 10 20:37:00 2005
+From: INFO at El-Ama.de (Andre El-Ama)
+Date: Thu, 10 Mar 2005 20:37:00 +0100
+Subject: [Snns-dev-general] problems with snns-4.2-20040227.patch]
+In-Reply-To: <42309E5C.8962A612@ipcf.cnr.it>
+Message-ID: <MIEKJEJOFNDPHFFGPMPOIEPKCPAA.INFO@El-Ama.de>
+
+Hallo Armida,
+
+these are the configure options:
+
+	--quiet           suppress most of the configuration messages
+	--enable-global   use global installation path --prefix
+	--prefix          path for global installation
+	--x-includes      alternative path for X include files
+	--x-libraries     alternative path for X libraries
+	--no-create       test run, don't change any output files
+
+take this one
+
+	--x-libraries     alternative path for X libraries
+
+and point to your X-libs:
+
+So you have to type in:
+
+configure --x-libraries /usr/freeware/lib32
+make install
+make compile
+make clean
+
+
+greetings to Italy and success to your work!
+
+[Andre EL-Ama]
+
+
+-----Original Message-----
+From: snns-dev-general-admin at berlios.de
+[mailto:snns-dev-general-admin at berlios.de]On Behalf Of Armida Di Fenza
+Sent: Thursday, March 10, 2005 8:22 PM
+To: snns-dev-general at lists.berlios.de
+Subject: [Snns-dev-general] problems with snns-4.2-20040227.patch]
+
+Dear Andre,
+
+now it is a bit better, I installed the Waw3d, but still the
+installation stop:
+
+
+ar  rc  lib3d.a net_analyzer.o  d3_xUtils.o  d3_global.o  d3_anageo.o
+d3_shade.o  d3_lists.o  d3_point.o  d3_dither.o  d3_zgraph.o
+d3_fonts.o  d3_graph.o  d3_draw.o  d3_disp.o  d3_move.o  d3_zValue.o
+d3_setup.o  d3_units.o  d3_links.o  d3_model.o  d3_project.o
+d3_light.o  d3_pannels.o  d3_main.o  bn_bignet.o  bn_basics.o
+bn_art1.o  bn_art2.o  bn_artmap.o  bn_TD_bignet.o  bn_kohonen.o
+bn_assoz.o  o_graph.o  bn_JordElm.o  ui_class.o  bn_bighop.o
+        :  lib3d.a
+        gcc  libxgui1.a libxgui2.a lib3d.a \
+         -lXaw3d -lXmu -lXt -lXext -lSM -lICE  -lX11  \
+        ../../kernel/sources/libkernel.a  ../../kernel/sources/libfunc.a
+-lm -ll  -o xgui
+ld32: FATAL 12: Expecting n32 objects:
+/usr/freeware/lib/gcc-lib/mips-sgi-irix6.5/3.0.4/../../../libXaw3d.so is
+o32.
+collect2: ld returned 4 exit status
+*** Error code 1 (bu21)
+*** Error code 1 (bu21)
+*** Error code 1 (bu21)
+
+I guess the reason is that it is not able to see the new 32 n32, because
+it goes to /usr/freeware/lib/ instead of going to /usr/freeware/lib32.
+How may I tell him to go there to find the right lib?
+
+Thanks for your help and greetings from Italy,
+
+Armida
+_______________________________________________
+Snns-dev-general mailing list
+Snns-dev-general at lists.berlios.de
+http://lists.berlios.de/mailman/listinfo/snns-dev-general
+
+
+
+From Patrick.Kursawe at web.de  Thu Mar 10 20:52:48 2005
+From: Patrick.Kursawe at web.de (Patrick Kursawe)
+Date: Thu, 10 Mar 2005 20:52:48 +0100
+Subject: [Snns-dev-general] Re: problems with snns-4.2-20040227.patch
+In-Reply-To: <42307ED7.62A7858E@ipcf.cnr.it>
+References: <42307ED7.62A7858E@ipcf.cnr.it>
+Message-ID: <20050310195248.GB17544@zaphod.anachem.ruhr-uni-bochum.de>
+
+On Thu, Mar 10, 2005 at 09:07:35AM -0800, Armida Di Fenza wrote:
+> I hoped was not absolutely necessary to build the Xaw3d library, but it
+> seems is not the case, or there is a way to get anyway the patched
+> installation working? 
+
+You could of course replace the -lXaw3d by -lXaw in the Makefile, but
+perhaps you will run into the problems that made us use Xaw3d in the first
+place: It seems that the GUI is broken for newer X-Servers - many popup
+menus simply don't work when not using Xaw3d. Since Irix uses a different
+X server than Linux, you maybe get away with it.
+
+Bye, Patrick
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 189 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/snns-dev-general/attachments/20050310/107dca5d/attachment.pgp>
+
+From Armida.DiFenza at ipcf.cnr.it  Fri Mar 11 10:35:21 2005
+From: Armida.DiFenza at ipcf.cnr.it (Armida Di Fenza)
+Date: Fri, 11 Mar 2005 01:35:21 -0800
+Subject: [Fwd: RE: [Snns-dev-general] problems with snns-4.2-20040227.patch]]
+Message-ID: <42316659.760755EA@ipcf.cnr.it>
+
+Dear Andre, 
+
+I suspected was difficult to install the libs but not to this point.
+After doing as you said, with the right configuration option this what I
+get during installation:
+
+
+
+         ar  rc  lib3d.a net_analyzer.o  d3_xUtils.o  d3_global.o 
+d3_anageo.o  d3_shade.o  d3_lists.o  d3_point.o  d3_dither.o 
+d3_zgraph.o  d3_fonts.o  d3_graph.o  d3_draw.o  d3_disp.o  d3_move.o 
+d3_zValue.o  d3_setup.o  d3_units.o  d3_links.o  d3_model.o 
+d3_project.o  d3_light.o  d3_pannels.o  d3_main.o  bn_bignet.o 
+bn_basics.o  bn_art1.o  bn_art2.o  bn_artmap.o  bn_TD_bignet.o 
+bn_kohonen.o  bn_assoz.o  o_graph.o  bn_JordElm.o  ui_class.o 
+bn_bighop.o
+        :  lib3d.a
+        gcc  libxgui1.a libxgui2.a lib3d.a \
+        -L/usr/freeware/lib32  -lXaw3d -lXmu -lXt -lXext -lSM -lICE 
+-lX11  \
+        ../../kernel/sources/libkernel.a  ../../kernel/sources/libfunc.a
+-lm -ll  -o xgui 
+ld32: WARNING 85: definition of vendorShellWidgetClass in
+/usr/freeware/lib32/libXaw3d.so preempts that definition in
+/usr/lib32/libXt.so.
+ld32: WARNING 85: definition of vendorShellClassRec in
+/usr/freeware/lib32/libXaw3d.so preempts that definition in
+/usr/lib32/libXt.so.
+        mkdir /usr/people/armida/SNNS/SNNSv4.2/xgui/bin/mips-sgi-irix6.5
+        /usr/people/armida/SNNS/SNNSv4.2/configuration/install-sh -c  -s
+xgui /usr/people/armida/SNNS/SNNSv4.2/xgui/bin/mips-sgi-irix6.5
+strip: Warning:
+/usr/people/armida/SNNS/SNNSv4.2/xgui/bin/mips-sgi-irix6.5/#inst.117706#:
+.MIPS.content.debug_line linked to a section that has been removed 
+strip: Warning:
+/usr/people/armida/SNNS/SNNSv4.2/xgui/bin/mips-sgi-irix6.5/#inst.117706#:
+.MIPS.content.debug_info linked to a section that has been removed 
+strip: Warning:
+/usr/people/armida/SNNS/SNNSv4.2/xgui/bin/mips-sgi-irix6.5/#inst.117706#:
+.MIPS.content.debug_aranges linked to a section that has been removed 
+
+
+it looks like there are some kind of conflicts between the Xt lib and
+the libXaw3d. Any suggestion?
+
+Thanks,
+
+Armida
+
+
+
+
+
+
+
+
+
+
+
+
+Hallo Armida,
+
+these are the configure options:
+
+	--quiet           suppress most of the configuration messages
+	--enable-global   use global installation path --prefix
+	--prefix          path for global installation
+	--x-includes      alternative path for X include files
+	--x-libraries     alternative path for X libraries
+	--no-create       test run, don't change any output files
+
+take this one
+
+	--x-libraries     alternative path for X libraries
+
+and point to your X-libs:
+
+So you have to type in:
+
+configure --x-libraries /usr/freeware/lib32
+make install
+make compile
+make clean
+
+
+greetings to Italy and success to your work!
+
+[Andre EL-Ama]
+
+
+-----Original Message-----
+From: snns-dev-general-admin at berlios.de
+[mailto:snns-dev-general-admin at berlios.de]On Behalf Of Armida Di Fenza
+Sent: Thursday, March 10, 2005 8:22 PM
+To: snns-dev-general at lists.berlios.de
+Subject: [Snns-dev-general] problems with snns-4.2-20040227.patch]
+
+Dear Andre,
+
+now it is a bit better, I installed the Waw3d, but still the
+installation stop:
+
+
+ar  rc  lib3d.a net_analyzer.o  d3_xUtils.o  d3_global.o  d3_anageo.o
+d3_shade.o  d3_lists.o  d3_point.o  d3_dither.o  d3_zgraph.o
+d3_fonts.o  d3_graph.o  d3_draw.o  d3_disp.o  d3_move.o  d3_zValue.o
+d3_setup.o  d3_units.o  d3_links.o  d3_model.o  d3_project.o
+d3_light.o  d3_pannels.o  d3_main.o  bn_bignet.o  bn_basics.o
+bn_art1.o  bn_art2.o  bn_artmap.o  bn_TD_bignet.o  bn_kohonen.o
+bn_assoz.o  o_graph.o  bn_JordElm.o  ui_class.o  bn_bighop.o
+        :  lib3d.a
+        gcc  libxgui1.a libxgui2.a lib3d.a \
+         -lXaw3d -lXmu -lXt -lXext -lSM -lICE  -lX11  \
+        ../../kernel/sources/libkernel.a  ../../kernel/sources/libfunc.a
+-lm -ll  -o xgui
+ld32: FATAL 12: Expecting n32 objects:
+/usr/freeware/lib/gcc-lib/mips-sgi-irix6.5/3.0.4/../../../libXaw3d.so is
+o32.
+collect2: ld returned 4 exit status
+*** Error code 1 (bu21)
+*** Error code 1 (bu21)
+*** Error code 1 (bu21)
+
+I guess the reason is that it is not able to see the new 32 n32, because
+it goes to /usr/freeware/lib/ instead of going to /usr/freeware/lib32.
+How may I tell him to go there to find the right lib?
+
+Thanks for your help and greetings from Italy,
+
+Armida
+_______________________________________________
+Snns-dev-general mailing list
+Snns-dev-general at lists.berlios.de
+http://lists.berlios.de/mailman/listinfo/snns-dev-general
+
+_______________________________________________
+Snns-dev-general mailing list
+Snns-dev-general at lists.berlios.de
+http://lists.berlios.de/mailman/listinfo/snns-dev-general
+
+
+From INFO at El-Ama.de  Fri Mar 11 10:55:01 2005
+From: INFO at El-Ama.de (Andre El-Ama)
+Date: Fri, 11 Mar 2005 10:55:01 +0100
+Subject: [Fwd: RE: [Snns-dev-general] problems with snns-4.2-20040227.patch]]
+In-Reply-To: <42316659.760755EA@ipcf.cnr.it>
+Message-ID: <MIEKJEJOFNDPHFFGPMPOKEPLCPAA.INFO@El-Ama.de>
+
+Hello Armida,
+
+did the SNNS GUI work?
+
+This seem to just warnings witch are not so serious. (I hope so!)
+
+Please start your X11 and try to start the SNNS from "SNNSv4.2/xgui/bin"
+with the "xgui" command from a shell and please report possible error logs.
+
+regards
+
+[Andre El-Ama]
+
+-----Original Message-----
+From: snns-dev-general-admin at berlios.de
+[mailto:snns-dev-general-admin at berlios.de]On Behalf Of Armida Di Fenza
+Sent: Friday, March 11, 2005 10:35 AM
+To: snns-dev-general at lists.berlios.de
+Subject: [Fwd: RE: [Snns-dev-general] problems with
+snns-4.2-20040227.patch]]
+
+Dear Andre,
+
+I suspected was difficult to install the libs but not to this point.
+After doing as you said, with the right configuration option this what I
+get during installation:
+
+
+
+         ar  rc  lib3d.a net_analyzer.o  d3_xUtils.o  d3_global.o
+d3_anageo.o  d3_shade.o  d3_lists.o  d3_point.o  d3_dither.o
+d3_zgraph.o  d3_fonts.o  d3_graph.o  d3_draw.o  d3_disp.o  d3_move.o
+d3_zValue.o  d3_setup.o  d3_units.o  d3_links.o  d3_model.o
+d3_project.o  d3_light.o  d3_pannels.o  d3_main.o  bn_bignet.o
+bn_basics.o  bn_art1.o  bn_art2.o  bn_artmap.o  bn_TD_bignet.o
+bn_kohonen.o  bn_assoz.o  o_graph.o  bn_JordElm.o  ui_class.o
+bn_bighop.o
+        :  lib3d.a
+        gcc  libxgui1.a libxgui2.a lib3d.a \
+        -L/usr/freeware/lib32  -lXaw3d -lXmu -lXt -lXext -lSM -lICE
+-lX11  \
+        ../../kernel/sources/libkernel.a  ../../kernel/sources/libfunc.a
+-lm -ll  -o xgui
+ld32: WARNING 85: definition of vendorShellWidgetClass in
+/usr/freeware/lib32/libXaw3d.so preempts that definition in
+/usr/lib32/libXt.so.
+ld32: WARNING 85: definition of vendorShellClassRec in
+/usr/freeware/lib32/libXaw3d.so preempts that definition in
+/usr/lib32/libXt.so.
+        mkdir /usr/people/armida/SNNS/SNNSv4.2/xgui/bin/mips-sgi-irix6.5
+        /usr/people/armida/SNNS/SNNSv4.2/configuration/install-sh -c  -s
+xgui /usr/people/armida/SNNS/SNNSv4.2/xgui/bin/mips-sgi-irix6.5
+strip: Warning:
+/usr/people/armida/SNNS/SNNSv4.2/xgui/bin/mips-sgi-irix6.5/#inst.117706#:
+.MIPS.content.debug_line linked to a section that has been removed
+strip: Warning:
+/usr/people/armida/SNNS/SNNSv4.2/xgui/bin/mips-sgi-irix6.5/#inst.117706#:
+.MIPS.content.debug_info linked to a section that has been removed
+strip: Warning:
+/usr/people/armida/SNNS/SNNSv4.2/xgui/bin/mips-sgi-irix6.5/#inst.117706#:
+.MIPS.content.debug_aranges linked to a section that has been removed
+
+
+it looks like there are some kind of conflicts between the Xt lib and
+the libXaw3d. Any suggestion?
+
+Thanks,
+
+Armida
+
+
+
+
+
+
+
+
+
+
+
+
+Hallo Armida,
+
+these are the configure options:
+
+        --quiet           suppress most of the configuration messages
+        --enable-global   use global installation path --prefix
+        --prefix          path for global installation
+        --x-includes      alternative path for X include files
+        --x-libraries     alternative path for X libraries
+        --no-create       test run, don't change any output files
+
+take this one
+
+        --x-libraries     alternative path for X libraries
+
+and point to your X-libs:
+
+So you have to type in:
+
+configure --x-libraries /usr/freeware/lib32
+make install
+make compile
+make clean
+
+
+greetings to Italy and success to your work!
+
+[Andre EL-Ama]
+
+
+-----Original Message-----
+From: snns-dev-general-admin at berlios.de
+[mailto:snns-dev-general-admin at berlios.de]On Behalf Of Armida Di Fenza
+Sent: Thursday, March 10, 2005 8:22 PM
+To: snns-dev-general at lists.berlios.de
+Subject: [Snns-dev-general] problems with snns-4.2-20040227.patch]
+
+Dear Andre,
+
+now it is a bit better, I installed the Waw3d, but still the
+installation stop:
+
+
+ar  rc  lib3d.a net_analyzer.o  d3_xUtils.o  d3_global.o  d3_anageo.o
+d3_shade.o  d3_lists.o  d3_point.o  d3_dither.o  d3_zgraph.o
+d3_fonts.o  d3_graph.o  d3_draw.o  d3_disp.o  d3_move.o  d3_zValue.o
+d3_setup.o  d3_units.o  d3_links.o  d3_model.o  d3_project.o
+d3_light.o  d3_pannels.o  d3_main.o  bn_bignet.o  bn_basics.o
+bn_art1.o  bn_art2.o  bn_artmap.o  bn_TD_bignet.o  bn_kohonen.o
+bn_assoz.o  o_graph.o  bn_JordElm.o  ui_class.o  bn_bighop.o
+        :  lib3d.a
+        gcc  libxgui1.a libxgui2.a lib3d.a \
+         -lXaw3d -lXmu -lXt -lXext -lSM -lICE  -lX11  \
+        ../../kernel/sources/libkernel.a  ../../kernel/sources/libfunc.a
+-lm -ll  -o xgui
+ld32: FATAL 12: Expecting n32 objects:
+/usr/freeware/lib/gcc-lib/mips-sgi-irix6.5/3.0.4/../../../libXaw3d.so is
+o32.
+collect2: ld returned 4 exit status
+*** Error code 1 (bu21)
+*** Error code 1 (bu21)
+*** Error code 1 (bu21)
+
+I guess the reason is that it is not able to see the new 32 n32, because
+it goes to /usr/freeware/lib/ instead of going to /usr/freeware/lib32.
+How may I tell him to go there to find the right lib?
+
+Thanks for your help and greetings from Italy,
+
+Armida
+_______________________________________________
+Snns-dev-general mailing list
+Snns-dev-general at lists.berlios.de
+http://lists.berlios.de/mailman/listinfo/snns-dev-general
+
+_______________________________________________
+Snns-dev-general mailing list
+Snns-dev-general at lists.berlios.de
+http://lists.berlios.de/mailman/listinfo/snns-dev-general
+_______________________________________________
+Snns-dev-general mailing list
+Snns-dev-general at lists.berlios.de
+http://lists.berlios.de/mailman/listinfo/snns-dev-general
+
+
+
+From INFO at El-Ama.de  Fri Mar 11 11:50:27 2005
+From: INFO at El-Ama.de (Andre El-Ama)
+Date: Fri, 11 Mar 2005 11:50:27 +0100
+Subject: [Snns-dev-general] problems withsnns-4.2-20040227.patch]]
+In-Reply-To: <423170BD.B424E59@ipcf.cnr.it>
+Message-ID: <MIEKJEJOFNDPHFFGPMPOCEPNCPAA.INFO@El-Ama.de>
+
+Hello Armida,
+
+I believe the problem is your X11-System search for the libraries in
+"/usr/lib32" and similar and your Xaw3D is installed to
+"/usr/freeware/lib32"
+
+Sorry but I think you have to reinstall the Xaw3d library for "/usr/lib32"
+replace this in the installation instructions (I send as a link) and after
+that type:
+
+configure --x-libraries /usr/lib32 --enable-global --prefix
+/usr/people/armida/SNNS/SNNSv4.2/xgui/bin/mips-sgi-irix6.5/xgui
+make install
+make compile
+make clean
+
+I believe this works you are only one step away from a working SNNS.
+
+Good luck!
+
+regards
+
+[Andre El-Ama]
+
+
+-----Original Message-----
+From: armida at nodomain [mailto:armida at nodomain]On Behalf Of Armida Di Fenza
+Sent: Friday, March 11, 2005 11:20 AM
+To: Andre El-Ama
+Subject: RE: [Snns-dev-general] problems withsnns-4.2-20040227.patch]]
+
+Hi Andre,
+
+Yes I tried to start the GUI, this is what I get:
+
+
+hannibal 78% snns
+119126:/usr/people/armida/SNNS/SNNSv4.2/xgui/bin/mips-sgi-irix6.5/xgui: rld:
+Fatal Error: Cannot Successfully map soname 'libXaw3d.so.2' under any of the
+filenames
+/usr/lib32/libXaw3d.so.2:/usr/lib32/internal/libXaw3d.so.2:/lib32/libXaw3d.s
+o.2:/opt/lib32/libXaw3d.so.2:/usr/lib32/libXaw3d.so.2.2:/usr/lib32/internal/
+libXaw3d.so.2.2:/lib32/libXaw3d.so.2.2:/opt/lib32/libXaw3d.so.2.2:
+
+Ciao,
+
+Armida
+
+
+> Hello Armida,
+>
+> did the SNNS GUI work?
+>
+> This seem to just warnings witch are not so serious. (I hope so!)
+>
+> Please start your X11 and try to start the SNNS from "SNNSv4.2/xgui/bin"
+> with the "xgui" command from a shell and please report possible error
+logs.
+>
+> regards
+>
+> [Andre El-Ama]
+>
+> -----Original Message-----
+> From: snns-dev-general-admin at berlios.de
+> [mailto:snns-dev-general-admin at berlios.de]On Behalf Of Armida Di Fenza
+> Sent: Friday, March 11, 2005 10:35 AM
+> To: snns-dev-general at lists.berlios.de
+> Subject: [Fwd: RE: [Snns-dev-general] problems with
+> snns-4.2-20040227.patch]]
+>
+> Dear Andre,
+>
+> I suspected was difficult to install the libs but not to this point.
+> After doing as you said, with the right configuration option this what I
+> get during installation:
+>
+>          ar  rc  lib3d.a net_analyzer.o  d3_xUtils.o  d3_global.o
+> d3_anageo.o  d3_shade.o  d3_lists.o  d3_point.o  d3_dither.o
+> d3_zgraph.o  d3_fonts.o  d3_graph.o  d3_draw.o  d3_disp.o  d3_move.o
+> d3_zValue.o  d3_setup.o  d3_units.o  d3_links.o  d3_model.o
+> d3_project.o  d3_light.o  d3_pannels.o  d3_main.o  bn_bignet.o
+> bn_basics.o  bn_art1.o  bn_art2.o  bn_artmap.o  bn_TD_bignet.o
+> bn_kohonen.o  bn_assoz.o  o_graph.o  bn_JordElm.o  ui_class.o
+> bn_bighop.o
+>         :  lib3d.a
+>         gcc  libxgui1.a libxgui2.a lib3d.a \
+>         -L/usr/freeware/lib32  -lXaw3d -lXmu -lXt -lXext -lSM -lICE
+> -lX11  \
+>         ../../kernel/sources/libkernel.a  ../../kernel/sources/libfunc.a
+> -lm -ll  -o xgui
+> ld32: WARNING 85: definition of vendorShellWidgetClass in
+> /usr/freeware/lib32/libXaw3d.so preempts that definition in
+> /usr/lib32/libXt.so.
+> ld32: WARNING 85: definition of vendorShellClassRec in
+> /usr/freeware/lib32/libXaw3d.so preempts that definition in
+> /usr/lib32/libXt.so.
+>         mkdir /usr/people/armida/SNNS/SNNSv4.2/xgui/bin/mips-sgi-irix6.5
+>         /usr/people/armida/SNNS/SNNSv4.2/configuration/install-sh -c  -s
+> xgui /usr/people/armida/SNNS/SNNSv4.2/xgui/bin/mips-sgi-irix6.5
+> strip: Warning:
+> /usr/people/armida/SNNS/SNNSv4.2/xgui/bin/mips-sgi-irix6.5/#inst.117706#:
+> .MIPS.content.debug_line linked to a section that has been removed
+> strip: Warning:
+> /usr/people/armida/SNNS/SNNSv4.2/xgui/bin/mips-sgi-irix6.5/#inst.117706#:
+> .MIPS.content.debug_info linked to a section that has been removed
+> strip: Warning:
+> /usr/people/armida/SNNS/SNNSv4.2/xgui/bin/mips-sgi-irix6.5/#inst.117706#:
+> .MIPS.content.debug_aranges linked to a section that has been removed
+>
+> it looks like there are some kind of conflicts between the Xt lib and
+> the libXaw3d. Any suggestion?
+>
+> Thanks,
+>
+> Armida
+>
+> Hallo Armida,
+>
+> these are the configure options:
+>
+>         --quiet           suppress most of the configuration messages
+>         --enable-global   use global installation path --prefix
+>         --prefix          path for global installation
+>         --x-includes      alternative path for X include files
+>         --x-libraries     alternative path for X libraries
+>         --no-create       test run, don't change any output files
+>
+> take this one
+>
+>         --x-libraries     alternative path for X libraries
+>
+> and point to your X-libs:
+>
+> So you have to type in:
+>
+> configure --x-libraries /usr/freeware/lib32
+> make install
+> make compile
+> make clean
+>
+> greetings to Italy and success to your work!
+>
+> [Andre EL-Ama]
+>
+> -----Original Message-----
+> From: snns-dev-general-admin at berlios.de
+> [mailto:snns-dev-general-admin at berlios.de]On Behalf Of Armida Di Fenza
+> Sent: Thursday, March 10, 2005 8:22 PM
+> To: snns-dev-general at lists.berlios.de
+> Subject: [Snns-dev-general] problems with snns-4.2-20040227.patch]
+>
+> Dear Andre,
+>
+> now it is a bit better, I installed the Waw3d, but still the
+> installation stop:
+>
+> ar  rc  lib3d.a net_analyzer.o  d3_xUtils.o  d3_global.o  d3_anageo.o
+> d3_shade.o  d3_lists.o  d3_point.o  d3_dither.o  d3_zgraph.o
+> d3_fonts.o  d3_graph.o  d3_draw.o  d3_disp.o  d3_move.o  d3_zValue.o
+> d3_setup.o  d3_units.o  d3_links.o  d3_model.o  d3_project.o
+> d3_light.o  d3_pannels.o  d3_main.o  bn_bignet.o  bn_basics.o
+> bn_art1.o  bn_art2.o  bn_artmap.o  bn_TD_bignet.o  bn_kohonen.o
+> bn_assoz.o  o_graph.o  bn_JordElm.o  ui_class.o  bn_bighop.o
+>         :  lib3d.a
+>         gcc  libxgui1.a libxgui2.a lib3d.a \
+>          -lXaw3d -lXmu -lXt -lXext -lSM -lICE  -lX11  \
+>         ../../kernel/sources/libkernel.a  ../../kernel/sources/libfunc.a
+> -lm -ll  -o xgui
+> ld32: FATAL 12: Expecting n32 objects:
+> /usr/freeware/lib/gcc-lib/mips-sgi-irix6.5/3.0.4/../../../libXaw3d.so is
+> o32.
+> collect2: ld returned 4 exit status
+> *** Error code 1 (bu21)
+> *** Error code 1 (bu21)
+> *** Error code 1 (bu21)
+>
+> I guess the reason is that it is not able to see the new 32 n32, because
+> it goes to /usr/freeware/lib/ instead of going to /usr/freeware/lib32.
+> How may I tell him to go there to find the right lib?
+>
+> Thanks for your help and greetings from Italy,
+>
+> Armida
+> _______________________________________________
+> Snns-dev-general mailing list
+> Snns-dev-general at lists.berlios.de
+> http://lists.berlios.de/mailman/listinfo/snns-dev-general
+>
+> _______________________________________________
+> Snns-dev-general mailing list
+> Snns-dev-general at lists.berlios.de
+> http://lists.berlios.de/mailman/listinfo/snns-dev-general
+> _______________________________________________
+> Snns-dev-general mailing list
+> Snns-dev-general at lists.berlios.de
+> http://lists.berlios.de/mailman/listinfo/snns-dev-general
+>
+> _______________________________________________
+> Snns-dev-general mailing list
+> Snns-dev-general at lists.berlios.de
+> http://lists.berlios.de/mailman/listinfo/snns-dev-general
+
+
+
+From Armida.DiFenza at ipcf.cnr.it  Fri Mar 11 15:27:12 2005
+From: Armida.DiFenza at ipcf.cnr.it (Armida Di Fenza)
+Date: Fri, 11 Mar 2005 06:27:12 -0800
+Subject: [Snns-dev-general] problems withsnns-4.2-20040227.patch]]]
+Message-ID: <4231AAC0.6A499B4@ipcf.cnr.it>
+
+Dear Andre,
+
+I tried again in a different way to install the Xaw3d, and now even if I
+still get the installation interrupted and the message:
+
+------------------------------------------------------------------------------------------------------------------
+ar  rc  lib3d.a net_analyzer.o  d3_xUtils.o  d3_global.o  d3_anageo.o 
+d3_shade.o  d3_lists.o  d3_point.o  d3_dither.o  d3_zgraph.o 
+d3_fonts.o  d3_graph.o  d3_draw.o  d3_disp.o  d3_move.o  d3_zValue.o 
+d3_setup.o  d3_units.o  d3_links.o  d3_model.o  d3_project.o 
+d3_light.o  d3_pannels.o  d3_main.o  bn_bignet.o  bn_basics.o 
+bn_art1.o  bn_art2.o  bn_artmap.o  bn_TD_bignet.o  bn_kohonen.o 
+bn_assoz.o  o_graph.o  bn_JordElm.o  ui_class.o  bn_bighop.o
+        :  lib3d.a
+        gcc  libxgui1.a libxgui2.a lib3d.a \
+        -L/usr/people/armida/xc/lib/Xaw3d  -lXaw3d -lXmu -lXt -lXext
+-lSM -lICE  -lX11  \
+        ../../kernel/sources/libkernel.a  ../../kernel/sources/libfunc.a
+-lm -ll  -o xgui 
+ld32: WARNING 85: definition of vendorShellWidgetClass in
+/usr/people/armida/xc/lib/Xaw3d/libXaw3d.a(Vendor.o) preempts that
+definition in /usr/lib32/libXt.so.
+ld32: WARNING 85: definition of vendorShellClassRec in
+/usr/people/armida/xc/lib/Xaw3d/libXaw3d.a(Vendor.o) preempts that
+definition in /usr/lib32/libXt.so.
+        /usr/people/armida/SNNS/SNNSv4.2/configuration/install-sh -c  -s
+xgui /usr/people/armida/SNNS/SNNSv4.2/xgui/bin/mips-sgi-irix6.5
+strip: Warning:
+/usr/people/armida/SNNS/SNNSv4.2/xgui/bin/mips-sgi-irix6.5/#inst.127612#:
+.MIPS.content.debug_line linked to a section that has been removed 
+strip: Warning:
+/usr/people/armida/SNNS/SNNSv4.2/xgui/bin/mips-sgi-irix6.5/#inst.127612#:
+.MIPS.content.debug_info linked to a section that has been removed 
+strip: Warning:
+/usr/people/armida/SNNS/SNNSv4.2/xgui/bin/mips-sgi-irix6.5/#inst.127612#:
+.MIPS.content.debug_aranges linked to a section that has been removed 
+-------------------------------------------------------------------------------------------------------------------
+
+when I run the gui....it works. Does it means that everything went well?
+Or should I expect problems somewhere?  Because I found no difference in
+the graphic, and I still cannot see how to enter commands in the status
+line, I cannot even find a status line, as described at pag. 103 of the
+manual.
+
+Ciao Armida
+
+
+From INFO at El-Ama.de  Fri Mar 11 17:50:01 2005
+From: INFO at El-Ama.de (INFO at El-Ama.de)
+Date: Fri, 11 Mar 2005 17:50:01 +0100
+Subject: [Snns-dev-general] problems withsnns-4.2-20040227.patch]]]
+In-Reply-To: <4231AAC0.6A499B4@ipcf.cnr.it>
+References: <4231AAC0.6A499B4@ipcf.cnr.it>
+Message-ID: <1110559787.4092.108.camel@cosmo.local>
+
+Hello Armida,
+
+This seem to be ok.
+
+Commands in the status line:
+I have nerver really worked with the Graphical Network Editor.
+But as far I can say it works very well on Linux.
+I prefer the bignet panel to create my networks - on Page 119 ff,
+or better the ff_bignet tool - on page 270
+
+For a real efficient scientific work you have to get fimilar with the
+Batchman and the SNNS-tools like ff_bignet (manual p. 235 and p 268). 
+The GUI of the SNNS is just like a visualisation plattform for your
+results and a place were you can do little adjustments and
+optimisations. The SNNS GUI is also good for small examples with a small
+amount of patterns and small networks. For real big turns with a lot of
+changing setup parameters you need the batchman and the tools. 
+
+Please try an SNNS example like the "letter" example or the to be sure
+the SNNS works correctly, before you start with your own work to avoid a
+waste of your reserach time. 
+
+Feel free to ask for further support!
+
+regards
+
+[Andre El-Ama]
+
+Am Fr, 2005-03-11 um 15.27 schrieb Armida Di Fenza:
+> Dear Andre,
+> 
+> I tried again in a different way to install the Xaw3d, and now even if I
+> still get the installation interrupted and the message:
+> 
+> ------------------------------------------------------------------------------------------------------------------
+> ar  rc  lib3d.a net_analyzer.o  d3_xUtils.o  d3_global.o  d3_anageo.o 
+> d3_shade.o  d3_lists.o  d3_point.o  d3_dither.o  d3_zgraph.o 
+> d3_fonts.o  d3_graph.o  d3_draw.o  d3_disp.o  d3_move.o  d3_zValue.o 
+> d3_setup.o  d3_units.o  d3_links.o  d3_model.o  d3_project.o 
+> d3_light.o  d3_pannels.o  d3_main.o  bn_bignet.o  bn_basics.o 
+> bn_art1.o  bn_art2.o  bn_artmap.o  bn_TD_bignet.o  bn_kohonen.o 
+> bn_assoz.o  o_graph.o  bn_JordElm.o  ui_class.o  bn_bighop.o
+>         :  lib3d.a
+>         gcc  libxgui1.a libxgui2.a lib3d.a \
+>         -L/usr/people/armida/xc/lib/Xaw3d  -lXaw3d -lXmu -lXt -lXext
+> -lSM -lICE  -lX11  \
+>         ../../kernel/sources/libkernel.a  ../../kernel/sources/libfunc.a
+> -lm -ll  -o xgui 
+> ld32: WARNING 85: definition of vendorShellWidgetClass in
+> /usr/people/armida/xc/lib/Xaw3d/libXaw3d.a(Vendor.o) preempts that
+> definition in /usr/lib32/libXt.so.
+> ld32: WARNING 85: definition of vendorShellClassRec in
+> /usr/people/armida/xc/lib/Xaw3d/libXaw3d.a(Vendor.o) preempts that
+> definition in /usr/lib32/libXt.so.
+>         /usr/people/armida/SNNS/SNNSv4.2/configuration/install-sh -c  -s
+> xgui /usr/people/armida/SNNS/SNNSv4.2/xgui/bin/mips-sgi-irix6.5
+> strip: Warning:
+> /usr/people/armida/SNNS/SNNSv4.2/xgui/bin/mips-sgi-irix6.5/#inst.127612#:
+> .MIPS.content.debug_line linked to a section that has been removed 
+> strip: Warning:
+> /usr/people/armida/SNNS/SNNSv4.2/xgui/bin/mips-sgi-irix6.5/#inst.127612#:
+> .MIPS.content.debug_info linked to a section that has been removed 
+> strip: Warning:
+> /usr/people/armida/SNNS/SNNSv4.2/xgui/bin/mips-sgi-irix6.5/#inst.127612#:
+> .MIPS.content.debug_aranges linked to a section that has been removed 
+> -------------------------------------------------------------------------------------------------------------------
+> 
+> when I run the gui....it works. Does it means that everything went well?
+> Or should I expect problems somewhere?  Because I found no difference in
+> the graphic, and I still cannot see how to enter commands in the status
+> line, I cannot even find a status line, as described at pag. 103 of the
+> manual.
+> 
+> Ciao Armida
+> _______________________________________________
+> Snns-dev-general mailing list
+> Snns-dev-general at lists.berlios.de
+> http://lists.berlios.de/mailman/listinfo/snns-dev-general
+
+
+
+From Armida.DiFenza at ipcf.cnr.it  Fri Mar 11 18:46:18 2005
+From: Armida.DiFenza at ipcf.cnr.it (Armida Di Fenza)
+Date: Fri, 11 Mar 2005 09:46:18 -0800
+Subject: [Snns-dev-general] problems withsnns-4.2-20040227.patch]]]
+References: <4231AAC0.6A499B4@ipcf.cnr.it>
+ <1110559787.4092.108.camel@cosmo.local>
+Message-ID: <4231D969.3E12D8C7@ipcf.cnr.it>
+
+Hallo Andre,
+
+what you say about the guy is very interesting, since I never thought before to work in batch mode, I have always
+preferred the visual way to deal with my data, but now that you say so I think I will consider it.
+
+Coming back to the Xaw3d installation,  I think that didn't work even if I can open snns, in fact when I try to load a
+file, from the FILE menu, I'm not able to go through the directories, for the cliking of the mouse only behave like to
+go up and down but doesn't allow me to double clik on a specific directory to select it and go inside it to look for my
+files.
+
+Nevertheless, I don't know which other way to use for building the libraries, since if I do it by the SGI page, that is
+automatically, I'm not allowed to choose the directory where I want the lib to build. This also doesn't matter maybe,
+since when I do the building manually in my own directory the installation of snns stop with the same message that is:
+
+ld32: WARNING 85: definition of vendorShellWidgetClass in /usr/people/armida/xc/lib/Xaw3d/libXaw3d.a(Vendor.o) preempts
+that definition in /usr/lib32/libXt.so.
+
+
+and that sound like some sort of conflicts with the libXt.
+
+Anyway, the reason why maybe it doesn't work, apart from the said problem, is that I don't have IMAKE and so I tried the
+"building without an X11 source tree", during the building this is what I got:
+
+============================================================================================
+rm -f libXaw3d.a
+        /usr/bin/ar cq libXaw3d.a AllWidgets.o AsciiSink.o AsciiSrc.o AsciiText.o Box.o  Command.o Dialog.o Form.o
+Grip.o Label.o Layout.o List.o  MenuButton.o Paned.o Panner.o Porthole.o Repeater.o Scrollbar.o  Simple.o SimpleMenu.o
+Sme.o SmeBSB.o SmeLine.o SmeThreeD.o  StripChart.o Text.o TextSink.o TextSrc.o TextAction.o TextPop.o  TextTr.o ThreeD.o
+Tip.o Toggle.o Tree.o Vendor.o Viewport.o  Xaw3dP.o XawInit.o laygram.o laylex.o MultiSrc.o MultiSink.o XawIm.o
+XawI18n.o
+        rm -f libXaw3d.so.2 \
+        && /usr/bin/ld -n32 -mips3 -n32 -mips3 -shared -no_unresolved    -all -check_registry
+$ROOT/usr/lib32/so_locations -soname libXaw3d.so.2 -set_version sgi1.0 libXaw3d.a -o libXaw3d.so.2 -nostdlib \
+                  /usr/lib32/libXmu.so /usr/lib32/libXt.so /usr/lib32/libXext.so /usr/lib32/libX11.so.1
+/usr/lib32/mips3/libc.so.1 /usr/lib32/libgen.so
+ld32: WARNING 85: definition of vendorShellWidgetClass in libXaw3d.a(Vendor.o) preempts that definition in
+/usr/lib32/libXt.so.
+ld32: WARNING 85: definition of vendorShellClassRec in libXaw3d.a(Vendor.o) preempts that definition in
+/usr/lib32/libXt.so.
+ld32: WARNING 84: /usr/lib32/libgen.so is not used for resolving any symbol.
+ld32: WARNING 129: Cannot find libX11.so.1, which is needed for proper transitive linking.
+        Use -quickstart_info for more information.
+ld32: WARNING 129: Cannot find libc.so.1, which is needed for proper transitive linking.
+        Use -quickstart_info for more information.
+ld32: WARNING 129: Cannot find libgen.so, which is needed for proper transitive linking.
+        Use -quickstart_info for more information.
+ld32: WARNING 129: Cannot find libgen.so, which is needed for proper transitive linking.
+        Use -quickstart_info for more information.
+ld32: WARNING 129: Cannot find libX11.so.1, which is needed for proper transitive linking.
+        Use -quickstart_info for more information.
+ld32: WARNING 129: Cannot find libc.so.1, which is needed for proper transitive linking.
+        Use -quickstart_info for more information.
+ld32: WARNING 129: Cannot find libX11.so.1, which is needed for proper transitive linking.
+        Use -quickstart_info for more information.
+ld32: WARNING 129: Cannot find libc.so.1, which is needed for proper transitive linking.
+        Use -quickstart_info for more information.
+ld32: WARNING 129: Cannot find libc.so.1, which is needed for proper transitive linking.
+        Use -quickstart_info for more information.
+ld32: WARNING 129: Cannot find libc.so.1, which is needed for proper transitive linking.
+        Use -quickstart_info for more information.
+hannibal 36% make install
+        bsdinst -c -m 0644 libXaw3d.so.2 \
+                /usr/lib32;
+/etc/install: can't create /usr/lib32/libXaw3d.so.2: Permission denied.
+        bsdinst -c -m 0644 libXaw3d.a /usr/lib32
+/etc/install: can't create /usr/lib32/libXaw3d.a: Permission denied.
++ mkdirhier /usr/include/X11/X11/Xaw3d
+Cannot create directory "/usr/include/X11/X11": Permission denied
+Cannot create directory "/usr/include/X11/X11/Xaw3d": No such file or directory
+*** Error code 2 (bu21) (ignored)
++ bsdinst -c -m 0444 AllWidgets.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 AsciiSink.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 AsciiSinkP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 AsciiSrc.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 AsciiSrcP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 AsciiText.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 AsciiTextP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 Box.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 BoxP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 Cardinals.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 Command.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 CommandP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 Dialog.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 DialogP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 Form.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 FormP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 Grip.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 GripP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 Label.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 LabelP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 Layout.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 LayoutP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 List.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 ListP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 MenuButton.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 MenuButtoP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 Paned.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 PanedP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 Panner.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 PannerP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 Porthole.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 PortholeP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 Repeater.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 RepeaterP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 Reports.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 Scrollbar.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 ScrollbarP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 Simple.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 SimpleP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 SimpleMenu.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 SimpleMenP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 Sme.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 SmeP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 SmeBSB.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 SmeBSBP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 SmeLine.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 SmeLineP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 SmeThreeD.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 SmeThreeDP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 StripChart.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 StripCharP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 Template.c /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 Template.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 TemplateP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 Text.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 TextP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 TextSink.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 TextSinkP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 TextSrc.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 TextSrcP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 ThreeD.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 ThreeDP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 Tip.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 TipP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 Toggle.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 ToggleP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 Tree.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 TreeP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 Viewport.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 ViewportP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 Xaw3dP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 XawInit.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 MultiSrc.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 MultiSrcP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 MultiSink.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 MultiSinkP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 VendorEP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 XawImP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
+install in . done
+??
+============================================================================================
+
+
+So I think I will give up with snns for the moment, because now I'm too much demoralized :-{
+
+But thanks for your very kind help!
+
+Ciao and greeting to germany,
+
+Armida
+
+
+
+From Patrick.Kursawe at web.de  Fri Mar 11 21:28:33 2005
+From: Patrick.Kursawe at web.de (Patrick Kursawe)
+Date: Fri, 11 Mar 2005 21:28:33 +0100
+Subject: [Snns-dev-general] Re: ANN Sample analysis
+In-Reply-To: <000a01c52650$275f3fc0$8da3bec1@vkidom.vki.ac.be>
+References: <000a01c52650$275f3fc0$8da3bec1@vkidom.vki.ac.be>
+Message-ID: <20050311202833.GA15174@zaphod.anachem.ruhr-uni-bochum.de>
+
+Hi,
+
+On Fri, Mar 11, 2005 at 04:36:54PM +0100, skynet wrote:
+> I have a question that is not maybe directly related to SNNS 
+> but I would like to have your opinions please:
+> 
+> Is there any way to account for the similarity in the ANN training set samples?!
+> 
+> Suppose I have 20 samples in which 19 are almost very similar (say they are 
+> very close in the N-dimensional sample space, where N is the number of input
+> vector). There is one that is very different. Is there a possibility to assign a weight
+> to the patterns in the SNNS or some technique that will tell the SNNS to give more
+> importance to the single but unique sample than just 1/N in the training? 
+
+I have never tried it, but it seems that at least someone started to
+implement such a feature.
+
+There are functions in the kernel interface that are used to assign "class"
+information to patterns and to make use of it - setClassInfo,
+setClassDistribution and useClassDistribution.
+
+I have no idea how useful it is or how to use it (except from
+using the kernel interface). Looks like this is a rather late feature that
+didn't yet make it into the user interface - or I am just a little blind
+and didn't notice. Any experience reports for this part of the kernel are
+highly welcome :-)
+
+Bye, Patrick
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 189 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/snns-dev-general/attachments/20050311/1e15192e/attachment.pgp>
+

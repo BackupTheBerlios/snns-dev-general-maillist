@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Snns-dev-general] problems with snns-4.2-20040227.patch
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/snns-dev-general/2005-March/index.html" >
+   <LINK REL="made" HREF="mailto:snns-dev-general%40lists.berlios.de?Subject=Re%3A%20%5BSnns-dev-general%5D%20problems%20with%20snns-4.2-20040227.patch&In-Reply-To=%3C20050310143503.GA28326%40zaphod.anachem.ruhr-uni-bochum.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000006.html">
+   <LINK REL="Next"  HREF="000008.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Snns-dev-general] problems with snns-4.2-20040227.patch</H1>
+    <B>Patrick Kursawe</B> 
+    <A HREF="mailto:snns-dev-general%40lists.berlios.de?Subject=Re%3A%20%5BSnns-dev-general%5D%20problems%20with%20snns-4.2-20040227.patch&In-Reply-To=%3C20050310143503.GA28326%40zaphod.anachem.ruhr-uni-bochum.de%3E"
+       TITLE="[Snns-dev-general] problems with snns-4.2-20040227.patch">Patrick.Kursawe at web.de
+       </A><BR>
+    <I>Thu Mar 10 15:35:03 CET 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000006.html">[Snns-dev-general] problems with snns-4.2-20040227.patch
+</A></li>
+        <LI>Next message: <A HREF="000008.html">[Snns-dev-general] Re: problems with snns-4.2-20040227.patch
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#7">[ date ]</a>
+              <a href="thread.html#7">[ thread ]</a>
+              <a href="subject.html#7">[ subject ]</a>
+              <a href="author.html#7">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Thu, Mar 10, 2005 at 05:40:12AM -0800, Armida Di Fenza wrote:
+&gt;<i> I had no problem during
+</I>&gt;<i> configuration but when I tried to install, I got the following error
+</I>&gt;<i> message:
+</I>&gt;<i> 
+</I>&gt;<i> hannibal 33% make install
+</I>&gt;<i>         cd tools/sources &amp;&amp; make install-strip
+</I>&gt;<i> make: file `Makefile' line 31: Must be a separator (: or ::) for rules
+</I>&gt;<i> (bu39)
+</I>
+Most likely you are not using GNU make but Irix make?
+I am not familiar with the Makefile syntax for Irix, so it would be nice if
+you could grab your text editor and try to fix that line. Perhaps it does
+not support the &quot;+=&quot; for variables, please try replacing that by a &quot;=&quot;.
+
+Bye, Patrick
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 189 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/snns-dev-general/attachments/20050310/a936d01b/attachment.pgp">https://lists.berlios.de/pipermail/snns-dev-general/attachments/20050310/a936d01b/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000006.html">[Snns-dev-general] problems with snns-4.2-20040227.patch
+</A></li>
+	<LI>Next message: <A HREF="000008.html">[Snns-dev-general] Re: problems with snns-4.2-20040227.patch
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#7">[ date ]</a>
+              <a href="thread.html#7">[ thread ]</a>
+              <a href="subject.html#7">[ subject ]</a>
+              <a href="author.html#7">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/snns-dev-general">More information about the Snns-dev-general
+mailing list</a><br>
+</body></html>

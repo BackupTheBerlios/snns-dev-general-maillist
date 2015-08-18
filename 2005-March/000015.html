@@ -1,0 +1,226 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Fwd: RE: [Snns-dev-general] problems with snns-4.2-20040227.patch]]
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/snns-dev-general/2005-March/index.html" >
+   <LINK REL="made" HREF="mailto:snns-dev-general%40lists.berlios.de?Subject=Re%3A%20%5BFwd%3A%20RE%3A%20%5BSnns-dev-general%5D%20problems%20with%20snns-4.2-20040227.patch%5D%5D&In-Reply-To=%3CMIEKJEJOFNDPHFFGPMPOKEPLCPAA.INFO%40El-Ama.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000014.html">
+   <LINK REL="Next"  HREF="000016.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Fwd: RE: [Snns-dev-general] problems with snns-4.2-20040227.patch]]</H1>
+    <B>Andre El-Ama</B> 
+    <A HREF="mailto:snns-dev-general%40lists.berlios.de?Subject=Re%3A%20%5BFwd%3A%20RE%3A%20%5BSnns-dev-general%5D%20problems%20with%20snns-4.2-20040227.patch%5D%5D&In-Reply-To=%3CMIEKJEJOFNDPHFFGPMPOKEPLCPAA.INFO%40El-Ama.de%3E"
+       TITLE="[Fwd: RE: [Snns-dev-general] problems with snns-4.2-20040227.patch]]">INFO at El-Ama.de
+       </A><BR>
+    <I>Fri Mar 11 10:55:01 CET 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000014.html">[Fwd: RE: [Snns-dev-general] problems with snns-4.2-20040227.patch]]
+</A></li>
+        <LI>Next message: <A HREF="000016.html">[Snns-dev-general] problems withsnns-4.2-20040227.patch]]
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#15">[ date ]</a>
+              <a href="thread.html#15">[ thread ]</a>
+              <a href="subject.html#15">[ subject ]</a>
+              <a href="author.html#15">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello Armida,
+
+did the SNNS GUI work?
+
+This seem to just warnings witch are not so serious. (I hope so!)
+
+Please start your X11 and try to start the SNNS from &quot;SNNSv4.2/xgui/bin&quot;
+with the &quot;xgui&quot; command from a shell and please report possible error logs.
+
+regards
+
+[Andre El-Ama]
+
+-----Original Message-----
+From: <A HREF="https://lists.berlios.de/mailman/listinfo/snns-dev-general">snns-dev-general-admin at berlios.de</A>
+[mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/snns-dev-general">snns-dev-general-admin at berlios.de</A>]On Behalf Of Armida Di Fenza
+Sent: Friday, March 11, 2005 10:35 AM
+To: <A HREF="https://lists.berlios.de/mailman/listinfo/snns-dev-general">snns-dev-general at lists.berlios.de</A>
+Subject: [Fwd: RE: [Snns-dev-general] problems with
+snns-4.2-20040227.patch]]
+
+Dear Andre,
+
+I suspected was difficult to install the libs but not to this point.
+After doing as you said, with the right configuration option this what I
+get during installation:
+
+
+
+         ar  rc  lib3d.a net_analyzer.o  d3_xUtils.o  d3_global.o
+d3_anageo.o  d3_shade.o  d3_lists.o  d3_point.o  d3_dither.o
+d3_zgraph.o  d3_fonts.o  d3_graph.o  d3_draw.o  d3_disp.o  d3_move.o
+d3_zValue.o  d3_setup.o  d3_units.o  d3_links.o  d3_model.o
+d3_project.o  d3_light.o  d3_pannels.o  d3_main.o  bn_bignet.o
+bn_basics.o  bn_art1.o  bn_art2.o  bn_artmap.o  bn_TD_bignet.o
+bn_kohonen.o  bn_assoz.o  o_graph.o  bn_JordElm.o  ui_class.o
+bn_bighop.o
+        :  lib3d.a
+        gcc  libxgui1.a libxgui2.a lib3d.a \
+        -L/usr/freeware/lib32  -lXaw3d -lXmu -lXt -lXext -lSM -lICE
+-lX11  \
+        ../../kernel/sources/libkernel.a  ../../kernel/sources/libfunc.a
+-lm -ll  -o xgui
+ld32: WARNING 85: definition of vendorShellWidgetClass in
+/usr/freeware/lib32/libXaw3d.so preempts that definition in
+/usr/lib32/libXt.so.
+ld32: WARNING 85: definition of vendorShellClassRec in
+/usr/freeware/lib32/libXaw3d.so preempts that definition in
+/usr/lib32/libXt.so.
+        mkdir /usr/people/armida/SNNS/SNNSv4.2/xgui/bin/mips-sgi-irix6.5
+        /usr/people/armida/SNNS/SNNSv4.2/configuration/install-sh -c  -s
+xgui /usr/people/armida/SNNS/SNNSv4.2/xgui/bin/mips-sgi-irix6.5
+strip: Warning:
+/usr/people/armida/SNNS/SNNSv4.2/xgui/bin/mips-sgi-irix6.5/#inst.117706#:
+.MIPS.content.debug_line linked to a section that has been removed
+strip: Warning:
+/usr/people/armida/SNNS/SNNSv4.2/xgui/bin/mips-sgi-irix6.5/#inst.117706#:
+.MIPS.content.debug_info linked to a section that has been removed
+strip: Warning:
+/usr/people/armida/SNNS/SNNSv4.2/xgui/bin/mips-sgi-irix6.5/#inst.117706#:
+.MIPS.content.debug_aranges linked to a section that has been removed
+
+
+it looks like there are some kind of conflicts between the Xt lib and
+the libXaw3d. Any suggestion?
+
+Thanks,
+
+Armida
+
+
+
+
+
+
+
+
+
+
+
+
+Hallo Armida,
+
+these are the configure options:
+
+        --quiet           suppress most of the configuration messages
+        --enable-global   use global installation path --prefix
+        --prefix          path for global installation
+        --x-includes      alternative path for X include files
+        --x-libraries     alternative path for X libraries
+        --no-create       test run, don't change any output files
+
+take this one
+
+        --x-libraries     alternative path for X libraries
+
+and point to your X-libs:
+
+So you have to type in:
+
+configure --x-libraries /usr/freeware/lib32
+make install
+make compile
+make clean
+
+
+greetings to Italy and success to your work!
+
+[Andre EL-Ama]
+
+
+-----Original Message-----
+From: <A HREF="https://lists.berlios.de/mailman/listinfo/snns-dev-general">snns-dev-general-admin at berlios.de</A>
+[mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/snns-dev-general">snns-dev-general-admin at berlios.de</A>]On Behalf Of Armida Di Fenza
+Sent: Thursday, March 10, 2005 8:22 PM
+To: <A HREF="https://lists.berlios.de/mailman/listinfo/snns-dev-general">snns-dev-general at lists.berlios.de</A>
+Subject: [Snns-dev-general] problems with snns-4.2-20040227.patch]
+
+Dear Andre,
+
+now it is a bit better, I installed the Waw3d, but still the
+installation stop:
+
+
+ar  rc  lib3d.a net_analyzer.o  d3_xUtils.o  d3_global.o  d3_anageo.o
+d3_shade.o  d3_lists.o  d3_point.o  d3_dither.o  d3_zgraph.o
+d3_fonts.o  d3_graph.o  d3_draw.o  d3_disp.o  d3_move.o  d3_zValue.o
+d3_setup.o  d3_units.o  d3_links.o  d3_model.o  d3_project.o
+d3_light.o  d3_pannels.o  d3_main.o  bn_bignet.o  bn_basics.o
+bn_art1.o  bn_art2.o  bn_artmap.o  bn_TD_bignet.o  bn_kohonen.o
+bn_assoz.o  o_graph.o  bn_JordElm.o  ui_class.o  bn_bighop.o
+        :  lib3d.a
+        gcc  libxgui1.a libxgui2.a lib3d.a \
+         -lXaw3d -lXmu -lXt -lXext -lSM -lICE  -lX11  \
+        ../../kernel/sources/libkernel.a  ../../kernel/sources/libfunc.a
+-lm -ll  -o xgui
+ld32: FATAL 12: Expecting n32 objects:
+/usr/freeware/lib/gcc-lib/mips-sgi-irix6.5/3.0.4/../../../libXaw3d.so is
+o32.
+collect2: ld returned 4 exit status
+*** Error code 1 (bu21)
+*** Error code 1 (bu21)
+*** Error code 1 (bu21)
+
+I guess the reason is that it is not able to see the new 32 n32, because
+it goes to /usr/freeware/lib/ instead of going to /usr/freeware/lib32.
+How may I tell him to go there to find the right lib?
+
+Thanks for your help and greetings from Italy,
+
+Armida
+_______________________________________________
+Snns-dev-general mailing list
+<A HREF="https://lists.berlios.de/mailman/listinfo/snns-dev-general">Snns-dev-general at lists.berlios.de</A>
+<A HREF="http://lists.berlios.de/mailman/listinfo/snns-dev-general">http://lists.berlios.de/mailman/listinfo/snns-dev-general</A>
+
+_______________________________________________
+Snns-dev-general mailing list
+<A HREF="https://lists.berlios.de/mailman/listinfo/snns-dev-general">Snns-dev-general at lists.berlios.de</A>
+<A HREF="http://lists.berlios.de/mailman/listinfo/snns-dev-general">http://lists.berlios.de/mailman/listinfo/snns-dev-general</A>
+_______________________________________________
+Snns-dev-general mailing list
+<A HREF="https://lists.berlios.de/mailman/listinfo/snns-dev-general">Snns-dev-general at lists.berlios.de</A>
+<A HREF="http://lists.berlios.de/mailman/listinfo/snns-dev-general">http://lists.berlios.de/mailman/listinfo/snns-dev-general</A>
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000014.html">[Fwd: RE: [Snns-dev-general] problems with snns-4.2-20040227.patch]]
+</A></li>
+	<LI>Next message: <A HREF="000016.html">[Snns-dev-general] problems withsnns-4.2-20040227.patch]]
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#15">[ date ]</a>
+              <a href="thread.html#15">[ thread ]</a>
+              <a href="subject.html#15">[ subject ]</a>
+              <a href="author.html#15">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/snns-dev-general">More information about the Snns-dev-general
+mailing list</a><br>
+</body></html>

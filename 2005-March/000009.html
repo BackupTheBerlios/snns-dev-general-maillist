@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Snns-dev-general] Re: problems with snns-4.2-20040227.patch
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/snns-dev-general/2005-March/index.html" >
+   <LINK REL="made" HREF="mailto:snns-dev-general%40lists.berlios.de?Subject=Re%3A%20%5BSnns-dev-general%5D%20Re%3A%20problems%20with%20snns-4.2-20040227.patch&In-Reply-To=%3C42307ED7.62A7858E%40ipcf.cnr.it%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000008.html">
+   <LINK REL="Next"  HREF="000010.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Snns-dev-general] Re: problems with snns-4.2-20040227.patch</H1>
+    <B>Armida Di Fenza</B> 
+    <A HREF="mailto:snns-dev-general%40lists.berlios.de?Subject=Re%3A%20%5BSnns-dev-general%5D%20Re%3A%20problems%20with%20snns-4.2-20040227.patch&In-Reply-To=%3C42307ED7.62A7858E%40ipcf.cnr.it%3E"
+       TITLE="[Snns-dev-general] Re: problems with snns-4.2-20040227.patch">Armida.DiFenza at ipcf.cnr.it
+       </A><BR>
+    <I>Thu Mar 10 18:07:35 CET 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000008.html">[Snns-dev-general] Re: problems with snns-4.2-20040227.patch
+</A></li>
+        <LI>Next message: <A HREF="000010.html">[Snns-dev-general] Re: problems with snns-4.2-20040227.patch
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#9">[ date ]</a>
+              <a href="thread.html#9">[ thread ]</a>
+              <a href="subject.html#9">[ subject ]</a>
+              <a href="author.html#9">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Dear Patrick,
+
+Dear Andre,
+
+thank you for your help. I actually was able to overcome the problem due
+to the +=, just deleting the +, as Patrick suggested. The problem now is
+that the installation stopped cause it was looking for the Xaw3d
+library, which I didn't build because I found it very difficult to do. I
+hoped was not absolutely necessary to build the Xaw3d library, but it
+seems is not the case, or there is a way to get anyway the patched
+installation working? 
+
+The following is the error message that I get:
+
+
+ar  rc  lib3d.a net_analyzer.o  d3_xUtils.o  d3_global.o  d3_anageo.o 
+d3_shade.o  d3_lists.o  d3_point.o  d3_dither.o  d3_zgraph.o 
+d3_fonts.o  d3_graph.o  d3_draw.o  d3_disp.o  d3_move.o  d3_zValue.o 
+d3_setup.o  d3_units.o  d3_links.o  d3_model.o  d3_project.o 
+d3_light.o  d3_pannels.o  d3_main.o  bn_bignet.o  bn_basics.o 
+bn_art1.o  bn_art2.o  bn_artmap.o  bn_TD_bignet.o  bn_kohonen.o 
+bn_assoz.o  o_graph.o  bn_JordElm.o  ui_class.o  bn_bighop.o
+        :  lib3d.a
+        gcc  libxgui1.a libxgui2.a lib3d.a \
+         -lXaw3d -lXmu -lXt -lXext -lSM -lICE  -lX11  \
+        ../../kernel/sources/libkernel.a  ../../kernel/sources/libfunc.a
+-lm -ll  -o xgui 
+ld32: FATAL 9: I/O error (-lXaw3d): No such file or directory
+collect2: ld returned 32 exit status
+*** Error code 1 (bu21)
+*** Error code 1 (bu21)
+*** Error code 1 (bu21)
+
+
+Thanks, Armida
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000008.html">[Snns-dev-general] Re: problems with snns-4.2-20040227.patch
+</A></li>
+	<LI>Next message: <A HREF="000010.html">[Snns-dev-general] Re: problems with snns-4.2-20040227.patch
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#9">[ date ]</a>
+              <a href="thread.html#9">[ thread ]</a>
+              <a href="subject.html#9">[ subject ]</a>
+              <a href="author.html#9">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/snns-dev-general">More information about the Snns-dev-general
+mailing list</a><br>
+</body></html>

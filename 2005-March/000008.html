@@ -1,0 +1,320 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Snns-dev-general] Re: problems with snns-4.2-20040227.patch
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/snns-dev-general/2005-March/index.html" >
+   <LINK REL="made" HREF="mailto:snns-dev-general%40lists.berlios.de?Subject=Re%3A%20%5BSnns-dev-general%5D%20Re%3A%20problems%20with%20snns-4.2-20040227.patch&In-Reply-To=%3C1110471922.6574.44.camel%40cosmo.local%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000007.html">
+   <LINK REL="Next"  HREF="000009.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Snns-dev-general] Re: problems with snns-4.2-20040227.patch</H1>
+    <B>Andre El-Ama</B> 
+    <A HREF="mailto:snns-dev-general%40lists.berlios.de?Subject=Re%3A%20%5BSnns-dev-general%5D%20Re%3A%20problems%20with%20snns-4.2-20040227.patch&In-Reply-To=%3C1110471922.6574.44.camel%40cosmo.local%3E"
+       TITLE="[Snns-dev-general] Re: problems with snns-4.2-20040227.patch">Andre at El-Ama.de
+       </A><BR>
+    <I>Thu Mar 10 17:27:56 CET 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000007.html">[Snns-dev-general] problems with snns-4.2-20040227.patch
+</A></li>
+        <LI>Next message: <A HREF="000009.html">[Snns-dev-general] Re: problems with snns-4.2-20040227.patch
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#8">[ date ]</a>
+              <a href="thread.html#8">[ thread ]</a>
+              <a href="subject.html#8">[ subject ]</a>
+              <a href="author.html#8">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hallo Armida,
+
+to avoid another error source. Please just take one of the following
+commands for your configuration:
+
+	--quiet           suppress most of the configuration messages
+	--enable-global   use global installation path --prefix
+	--prefix          path for global installation
+	--x-includes      alternative path for X include files
+	--x-libraries     alternative path for X libraries
+	--no-create       test run, don't change any output files
+	
+e.g.like
+
+	configure
+	-&gt; will install to &lt;SNNSDIR&gt;/[tools|xgui]/bin/&lt;HOST&gt;
+
+	configure --enable-global
+	-&gt; will install to /usr/local/bin
+
+	configure --enable-global --prefix /home/yourdir
+	-&gt; will install to /home/yourdir/bin
+
+
+!!! Do not try to install ENZO !!!
+
+
+It is just compatible with SNNS4.1 and we [snns-dev] don't support it
+until now!
+
+regards and good luck!
+
+[Andre El-Ama]
+
+
+Am Do, 2005-03-10 um 14.40 schrieb Armida Di Fenza:
+&gt;<i> Dear Developers,
+</I>&gt;<i> 
+</I>&gt;<i> dear users,
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> I patched SNNSv4.2 following the instructions in the SNNS-development
+</I>&gt;<i> homepage, using the snns-4.2-20040227.patch, on my Irix64 6.5. I then
+</I>&gt;<i> proceeded to configure and install SNNS. I had no problem during
+</I>&gt;<i> configuration but when I tried to install, I got the following error
+</I>&gt;<i> message:
+</I>&gt;<i> 
+</I>&gt;<i> hannibal 33% make install
+</I>&gt;<i>         cd tools/sources &amp;&amp; make install-strip
+</I>&gt;<i> make: file `Makefile' line 31: Must be a separator (: or ::) for rules
+</I>&gt;<i> (bu39)
+</I>&gt;<i> make: file `Makefile' line 31: Syntax error
+</I>&gt;<i> *** Error code 1 (bu21)
+</I>&gt;<i> 
+</I>&gt;<i> This error only appear after patching. Here is the outputs of the
+</I>&gt;<i> patching operation:
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> hannibal 31% patch -p0 &lt;snns-4.2-20040227.patch
+</I>&gt;<i> Hmm...  Looks like a unified diff to me...
+</I>&gt;<i> The text leading up to this was:
+</I>&gt;<i> --------------------------
+</I>&gt;<i> |Nur in SNNSv4.2-patched: autom4te.cache.
+</I>&gt;<i> |Nur in SNNSv4.2-patched: config.cache.
+</I>&gt;<i> |Nur in SNNSv4.2-patched: config.log.
+</I>&gt;<i> |diff -ru SNNSv4.2/configure SNNSv4.2-patched/configure
+</I>&gt;<i> |--- SNNSv4.2/configure 1998-09-03 15:44:28.000000000 +0200
+</I>&gt;<i> |+++ SNNSv4.2-patched/configure 2004-02-24 14:33:32.569070466 +0100
+</I>&gt;<i> --------------------------
+</I>&gt;<i> File to patch: configure
+</I>&gt;<i> Patching file configure using Plan A...
+</I>&gt;<i> Hunk #1 succeeded at 1.
+</I>&gt;<i> Hunk #2 succeeded at 330.
+</I>&gt;<i> Hunk #3 succeeded at 352.
+</I>&gt;<i> Hunk #4 succeeded at 362.
+</I>&gt;<i> Hunk #5 succeeded at 423.
+</I>&gt;<i> Hunk #6 succeeded at 472.
+</I>&gt;<i> Hunk #7 succeeded at 498.
+</I>&gt;<i> Hunk #8 succeeded at 534.
+</I>&gt;<i> Hunk #9 succeeded at 544.
+</I>&gt;<i> Hunk #10 succeeded at 555.
+</I>&gt;<i> Hunk #11 succeeded at 616.
+</I>&gt;<i> Hunk #12 succeeded at 729.
+</I>&gt;<i> Hunk #13 succeeded at 1215.
+</I>&gt;<i> Hunk #14 succeeded at 1325.
+</I>&gt;<i> Hunk #15 succeeded at 1339.
+</I>&gt;<i> Hunk #16 succeeded at 1448.
+</I>&gt;<i> Hunk #17 succeeded at 1474.
+</I>&gt;<i> Hunk #18 succeeded at 3016.
+</I>&gt;<i> Hunk #19 succeeded at 3228.
+</I>&gt;<i> Hunk #20 succeeded at 4393.
+</I>&gt;<i> Hunk #21 succeeded at 4696.
+</I>&gt;<i> Hunk #22 succeeded at 4746.
+</I>&gt;<i> Hunk #23 succeeded at 5190.
+</I>&gt;<i> Hunk #24 succeeded at 5211.
+</I>&gt;<i> Hunk #25 succeeded at 6400.
+</I>&gt;<i> Hunk #26 succeeded at 6462.
+</I>&gt;<i> Hmm...  The next patch looks like a unified diff to me...
+</I>&gt;<i> The text leading up to this was:
+</I>&gt;<i> --------------------------
+</I>&gt;<i> |diff -ru SNNSv4.2/kernel/sources/kr_mem.c
+</I>&gt;<i> SNNSv4.2-patched/kernel/sources/kr_mem.c
+</I>&gt;<i> |--- SNNSv4.2/kernel/sources/kr_mem.c   1998-09-03 15:38:16.000000000
+</I>&gt;<i> +0200
+</I>&gt;<i> |+++ SNNSv4.2-patched/kernel/sources/kr_mem.c   2004-02-24
+</I>&gt;<i> 14:01:29.744318302 +0100
+</I>&gt;<i> --------------------------
+</I>&gt;<i> File to patch: kernel/sources/kr_mem.c
+</I>&gt;<i> Patching file kernel/sources/kr_mem.c using Plan A...
+</I>&gt;<i> Hunk #1 succeeded at 27.
+</I>&gt;<i> Hmm...  The next patch looks like a unified diff to me...
+</I>&gt;<i> The text leading up to this was:
+</I>&gt;<i> --------------------------
+</I>&gt;<i> |diff -ru SNNSv4.2/kernel/sources/learn_f.c
+</I>&gt;<i> SNNSv4.2-patched/kernel/sources/learn_f.c
+</I>&gt;<i> |--- SNNSv4.2/kernel/sources/learn_f.c  1998-09-03 15:38:22.000000000
+</I>&gt;<i> +0200
+</I>&gt;<i> |+++ SNNSv4.2-patched/kernel/sources/learn_f.c  2004-02-24
+</I>&gt;<i> 14:01:29.753315362 +0100
+</I>&gt;<i> --------------------------
+</I>&gt;<i> File to patch: kernel/sources/learn_f.c
+</I>&gt;<i> Patching file kernel/sources/learn_f.c using Plan A...
+</I>&gt;<i> Hunk #1 succeeded at 36.
+</I>&gt;<i> Hmm...  The next patch looks like a unified diff to me...
+</I>&gt;<i> The text leading up to this was:
+</I>&gt;<i> --------------------------
+</I>&gt;<i> |diff -ru SNNSv4.2/kernel/sources/Makefile
+</I>&gt;<i> SNNSv4.2-patched/kernel/sources/Makefile
+</I>&gt;<i> |--- SNNSv4.2/kernel/sources/Makefile   1998-09-03 15:38:00.000000000
+</I>&gt;<i> +0200
+</I>&gt;<i> |+++ SNNSv4.2-patched/kernel/sources/Makefile   2004-02-24
+</I>&gt;<i> 14:01:29.755314709 +0100
+</I>&gt;<i> --------------------------
+</I>&gt;<i> File to patch: kernel/sources/Makefil
+</I>&gt;<i> No file found--skip this patch? [n]
+</I>&gt;<i> File to patch: kernel/sources/Makefile
+</I>&gt;<i> Patching file kernel/sources/Makefile using Plan A...
+</I>&gt;<i> Hunk #1 succeeded at 49.
+</I>&gt;<i> Hmm...  The next patch looks like a unified diff to me...
+</I>&gt;<i> The text leading up to this was:
+</I>&gt;<i> --------------------------
+</I>&gt;<i> |diff -ru SNNSv4.2/tools/sources/Makefile
+</I>&gt;<i> SNNSv4.2-patched/tools/sources/Makefile
+</I>&gt;<i> |--- SNNSv4.2/tools/sources/Makefile    1998-09-03 15:37:47.000000000
+</I>&gt;<i> +0200
+</I>&gt;<i> |+++ SNNSv4.2-patched/tools/sources/Makefile    2004-02-24
+</I>&gt;<i> 14:01:29.756314382 +0100
+</I>&gt;<i> --------------------------
+</I>&gt;<i> File to patch: tools/sources/Makefile
+</I>&gt;<i> Patching file tools/sources/Makefile using Plan A...
+</I>&gt;<i> Hunk #1 succeeded at 26.
+</I>&gt;<i> Hunk #2 succeeded at 177.
+</I>&gt;<i> Hmm...  The next patch looks like a unified diff to me...
+</I>&gt;<i> The text leading up to this was:
+</I>&gt;<i> --------------------------
+</I>&gt;<i> |diff -ru SNNSv4.2/xgui/sources/Makefile
+</I>&gt;<i> SNNSv4.2-patched/xgui/sources/Makefile
+</I>&gt;<i> |--- SNNSv4.2/xgui/sources/Makefile     1998-09-03 15:39:03.000000000
+</I>&gt;<i> +0200
+</I>&gt;<i> |+++ SNNSv4.2-patched/xgui/sources/Makefile     2004-02-24
+</I>&gt;<i> 14:01:29.759313402 +0100
+</I>&gt;<i> --------------------------
+</I>&gt;<i> File to patch: xgui/sources/Makefile
+</I>&gt;<i> Patching file xgui/sources/Makefile using Plan A...
+</I>&gt;<i> Hunk #1 succeeded at 26.
+</I>&gt;<i> Hunk #2 succeeded at 203.
+</I>&gt;<i> Hmm...  The next patch looks like a unified diff to me...
+</I>&gt;<i> The text leading up to this was:
+</I>&gt;<i> --------------------------
+</I>&gt;<i> |diff -ru SNNSv4.2/xgui/sources/ui_config.c
+</I>&gt;<i> SNNSv4.2-patched/xgui/sources/ui_config.c
+</I>&gt;<i> |--- SNNSv4.2/xgui/sources/ui_config.c  1998-09-03 15:39:32.000000000
+</I>&gt;<i> +0200
+</I>&gt;<i> |+++ SNNSv4.2-patched/xgui/sources/ui_config.c  2004-02-24
+</I>&gt;<i> 14:01:29.760313076 +0100
+</I>&gt;<i> --------------------------
+</I>&gt;<i> File to patch: xgui/sources/ui_config.c
+</I>&gt;<i> Patching file xgui/sources/ui_config.c using Plan A...
+</I>&gt;<i> Hunk #1 succeeded at 492.
+</I>&gt;<i> Hmm...  The next patch looks like a unified diff to me...
+</I>&gt;<i> The text leading up to this was:
+</I>&gt;<i> --------------------------
+</I>&gt;<i> |diff -ru SNNSv4.2/xgui/sources/ui_file.ph
+</I>&gt;<i> SNNSv4.2-patched/xgui/sources/ui_file.ph
+</I>&gt;<i> |--- SNNSv4.2/xgui/sources/ui_file.ph   1998-09-03 15:39:38.000000000
+</I>&gt;<i> +0200
+</I>&gt;<i> |+++ SNNSv4.2-patched/xgui/sources/ui_file.ph   2004-02-24
+</I>&gt;<i> 14:01:29.761312749 +0100
+</I>&gt;<i> --------------------------
+</I>&gt;<i> File to patch: xgui/sources/ui_file.ph
+</I>&gt;<i> Patching file xgui/sources/ui_file.ph using Plan A...
+</I>&gt;<i> Hunk #1 succeeded at 41.
+</I>&gt;<i> Hmm...  The next patch looks like a unified diff to me...
+</I>&gt;<i> The text leading up to this was:
+</I>&gt;<i> --------------------------
+</I>&gt;<i> |diff -ru SNNSv4.2/xgui/sources/ui.h SNNSv4.2-patched/xgui/sources/ui.h
+</I>&gt;<i> |--- SNNSv4.2/xgui/sources/ui.h 1998-09-03 15:39:22.000000000 +0200
+</I>&gt;<i> |+++ SNNSv4.2-patched/xgui/sources/ui.h 2004-02-24 14:01:29.763312096
+</I>&gt;<i> +0100
+</I>&gt;<i> --------------------------
+</I>&gt;<i> File to patch: xgui/sources/ui.h
+</I>&gt;<i> Patching file xgui/sources/ui.h using Plan A...
+</I>&gt;<i> Hunk #1 succeeded at 21.
+</I>&gt;<i> Hunk #2 succeeded at 66.
+</I>&gt;<i> Hmm...  The next patch looks like a unified diff to me...
+</I>&gt;<i> The text leading up to this was:
+</I>&gt;<i> --------------------------
+</I>&gt;<i> |--- SNNSv4.2/kernel/sources/kr_mem.c   2004-02-25 10:56:42.171875000
+</I>&gt;<i> +0000
+</I>&gt;<i> |+++ SNNSv4.2-patched/kernel/sources/kr_mem.c   2004-02-25
+</I>&gt;<i> 11:00:56.484375000 +0000
+</I>&gt;<i> --------------------------
+</I>&gt;<i> File to patch: kernel/sources/kr_mem.c
+</I>&gt;<i> Patching file kernel/sources/kr_mem.c using Plan A...
+</I>&gt;<i> Hunk #1 succeeded at 37.
+</I>&gt;<i> Hmm...  The next patch looks like a unified diff to me...
+</I>&gt;<i> The text leading up to this was:
+</I>&gt;<i> --------------------------
+</I>&gt;<i> |--- SNNSv4.2/tools/sources/snnsbat.c   1998-09-03 13:37:58.000000000
+</I>&gt;<i> +0000
+</I>&gt;<i> |+++ SNNSv4.2-patched/tools/sources/snnsbat.c   2004-02-25
+</I>&gt;<i> 11:04:04.828125000 +0000
+</I>&gt;<i> --------------------------
+</I>&gt;<i> File to patch: tools/sources/snnsbat.c
+</I>&gt;<i> Patching file tools/sources/snnsbat.c using Plan A...
+</I>&gt;<i> Hunk #1 succeeded at 39.
+</I>&gt;<i> Hmm...  The next patch looks like a unified diff to me...
+</I>&gt;<i> The text leading up to this was:
+</I>&gt;<i> --------------------------
+</I>&gt;<i> |--- SNNSv4.2/tools/sources/symtab.c    1998-09-03 15:37:59.000000000
+</I>&gt;<i> +0200
+</I>&gt;<i> |+++ SNNSv4.2-patched/tools/sources/symtab.c    2004-02-25
+</I>&gt;<i> 11:29:26.000000000 +0100
+</I>&gt;<i> --------------------------
+</I>&gt;<i> File to patch: tools/sources/symtab.c
+</I>&gt;<i> Patching file tools/sources/symtab.c using Plan A...
+</I>&gt;<i> Hunk #1 succeeded at 32.
+</I>&gt;<i> Hmm...  The next patch looks like a unified diff to me...
+</I>&gt;<i> The text leading up to this was:
+</I>&gt;<i> --------------------------
+</I>&gt;<i> |--- SNNSv4.2/kernel/sources/init_f.c   1998-09-03 13:38:08.000000000
+</I>&gt;<i> +0000
+</I>&gt;<i> |+++ SNNSv4.2-patched/kernel/sources/init_f.c   2004-02-27
+</I>&gt;<i> 11:14:03.968750000 +0000
+</I>&gt;<i> --------------------------
+</I>&gt;<i> File to patch: kernel/sources/init_f.c
+</I>&gt;<i> Patching file kernel/sources/init_f.c using Plan A...
+</I>&gt;<i> Hunk #1 succeeded at 62.
+</I>&gt;<i> done
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> May you give me any suggestion about what to do in order to avoid this
+</I>&gt;<i> problem?
+</I>&gt;<i> 
+</I>&gt;<i> Thank you very much,
+</I>&gt;<i> 
+</I>&gt;<i> Armida
+</I>
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000007.html">[Snns-dev-general] problems with snns-4.2-20040227.patch
+</A></li>
+	<LI>Next message: <A HREF="000009.html">[Snns-dev-general] Re: problems with snns-4.2-20040227.patch
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#8">[ date ]</a>
+              <a href="thread.html#8">[ thread ]</a>
+              <a href="subject.html#8">[ subject ]</a>
+              <a href="author.html#8">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/snns-dev-general">More information about the Snns-dev-general
+mailing list</a><br>
+</body></html>

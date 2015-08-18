@@ -1,0 +1,300 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Snns-dev-general] problems withsnns-4.2-20040227.patch]]]
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/snns-dev-general/2005-March/index.html" >
+   <LINK REL="made" HREF="mailto:snns-dev-general%40lists.berlios.de?Subject=Re%3A%20%5BSnns-dev-general%5D%20problems%20withsnns-4.2-20040227.patch%5D%5D%5D&In-Reply-To=%3C4231D969.3E12D8C7%40ipcf.cnr.it%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000018.html">
+   <LINK REL="Next"  HREF="000020.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Snns-dev-general] problems withsnns-4.2-20040227.patch]]]</H1>
+    <B>Armida Di Fenza</B> 
+    <A HREF="mailto:snns-dev-general%40lists.berlios.de?Subject=Re%3A%20%5BSnns-dev-general%5D%20problems%20withsnns-4.2-20040227.patch%5D%5D%5D&In-Reply-To=%3C4231D969.3E12D8C7%40ipcf.cnr.it%3E"
+       TITLE="[Snns-dev-general] problems withsnns-4.2-20040227.patch]]]">Armida.DiFenza at ipcf.cnr.it
+       </A><BR>
+    <I>Fri Mar 11 18:46:18 CET 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000018.html">[Snns-dev-general] problems withsnns-4.2-20040227.patch]]]
+</A></li>
+        <LI>Next message: <A HREF="000020.html">[Snns-dev-general] Re: ANN Sample analysis
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#19">[ date ]</a>
+              <a href="thread.html#19">[ thread ]</a>
+              <a href="subject.html#19">[ subject ]</a>
+              <a href="author.html#19">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hallo Andre,
+
+what you say about the guy is very interesting, since I never thought before to work in batch mode, I have always
+preferred the visual way to deal with my data, but now that you say so I think I will consider it.
+
+Coming back to the Xaw3d installation,  I think that didn't work even if I can open snns, in fact when I try to load a
+file, from the FILE menu, I'm not able to go through the directories, for the cliking of the mouse only behave like to
+go up and down but doesn't allow me to double clik on a specific directory to select it and go inside it to look for my
+files.
+
+Nevertheless, I don't know which other way to use for building the libraries, since if I do it by the SGI page, that is
+automatically, I'm not allowed to choose the directory where I want the lib to build. This also doesn't matter maybe,
+since when I do the building manually in my own directory the installation of snns stop with the same message that is:
+
+ld32: WARNING 85: definition of vendorShellWidgetClass in /usr/people/armida/xc/lib/Xaw3d/libXaw3d.a(Vendor.o) preempts
+that definition in /usr/lib32/libXt.so.
+
+
+and that sound like some sort of conflicts with the libXt.
+
+Anyway, the reason why maybe it doesn't work, apart from the said problem, is that I don't have IMAKE and so I tried the
+&quot;building without an X11 source tree&quot;, during the building this is what I got:
+
+============================================================================================
+rm -f libXaw3d.a
+        /usr/bin/ar cq libXaw3d.a AllWidgets.o AsciiSink.o AsciiSrc.o AsciiText.o Box.o  Command.o Dialog.o Form.o
+Grip.o Label.o Layout.o List.o  MenuButton.o Paned.o Panner.o Porthole.o Repeater.o Scrollbar.o  Simple.o SimpleMenu.o
+Sme.o SmeBSB.o SmeLine.o SmeThreeD.o  StripChart.o Text.o TextSink.o TextSrc.o TextAction.o TextPop.o  TextTr.o ThreeD.o
+Tip.o Toggle.o Tree.o Vendor.o Viewport.o  Xaw3dP.o XawInit.o laygram.o laylex.o MultiSrc.o MultiSink.o XawIm.o
+XawI18n.o
+        rm -f libXaw3d.so.2 \
+        &amp;&amp; /usr/bin/ld -n32 -mips3 -n32 -mips3 -shared -no_unresolved    -all -check_registry
+$ROOT/usr/lib32/so_locations -soname libXaw3d.so.2 -set_version sgi1.0 libXaw3d.a -o libXaw3d.so.2 -nostdlib \
+                  /usr/lib32/libXmu.so /usr/lib32/libXt.so /usr/lib32/libXext.so /usr/lib32/libX11.so.1
+/usr/lib32/mips3/libc.so.1 /usr/lib32/libgen.so
+ld32: WARNING 85: definition of vendorShellWidgetClass in libXaw3d.a(Vendor.o) preempts that definition in
+/usr/lib32/libXt.so.
+ld32: WARNING 85: definition of vendorShellClassRec in libXaw3d.a(Vendor.o) preempts that definition in
+/usr/lib32/libXt.so.
+ld32: WARNING 84: /usr/lib32/libgen.so is not used for resolving any symbol.
+ld32: WARNING 129: Cannot find libX11.so.1, which is needed for proper transitive linking.
+        Use -quickstart_info for more information.
+ld32: WARNING 129: Cannot find libc.so.1, which is needed for proper transitive linking.
+        Use -quickstart_info for more information.
+ld32: WARNING 129: Cannot find libgen.so, which is needed for proper transitive linking.
+        Use -quickstart_info for more information.
+ld32: WARNING 129: Cannot find libgen.so, which is needed for proper transitive linking.
+        Use -quickstart_info for more information.
+ld32: WARNING 129: Cannot find libX11.so.1, which is needed for proper transitive linking.
+        Use -quickstart_info for more information.
+ld32: WARNING 129: Cannot find libc.so.1, which is needed for proper transitive linking.
+        Use -quickstart_info for more information.
+ld32: WARNING 129: Cannot find libX11.so.1, which is needed for proper transitive linking.
+        Use -quickstart_info for more information.
+ld32: WARNING 129: Cannot find libc.so.1, which is needed for proper transitive linking.
+        Use -quickstart_info for more information.
+ld32: WARNING 129: Cannot find libc.so.1, which is needed for proper transitive linking.
+        Use -quickstart_info for more information.
+ld32: WARNING 129: Cannot find libc.so.1, which is needed for proper transitive linking.
+        Use -quickstart_info for more information.
+hannibal 36% make install
+        bsdinst -c -m 0644 libXaw3d.so.2 \
+                /usr/lib32;
+/etc/install: can't create /usr/lib32/libXaw3d.so.2: Permission denied.
+        bsdinst -c -m 0644 libXaw3d.a /usr/lib32
+/etc/install: can't create /usr/lib32/libXaw3d.a: Permission denied.
++ mkdirhier /usr/include/X11/X11/Xaw3d
+Cannot create directory &quot;/usr/include/X11/X11&quot;: Permission denied
+Cannot create directory &quot;/usr/include/X11/X11/Xaw3d&quot;: No such file or directory
+*** Error code 2 (bu21) (ignored)
++ bsdinst -c -m 0444 AllWidgets.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 AsciiSink.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 AsciiSinkP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 AsciiSrc.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 AsciiSrcP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 AsciiText.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 AsciiTextP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 Box.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 BoxP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 Cardinals.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 Command.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 CommandP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 Dialog.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 DialogP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 Form.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 FormP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 Grip.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 GripP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 Label.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 LabelP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 Layout.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 LayoutP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 List.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 ListP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 MenuButton.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 MenuButtoP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 Paned.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 PanedP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 Panner.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 PannerP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 Porthole.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 PortholeP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 Repeater.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 RepeaterP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 Reports.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 Scrollbar.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 ScrollbarP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 Simple.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 SimpleP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 SimpleMenu.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 SimpleMenP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 Sme.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 SmeP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 SmeBSB.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 SmeBSBP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 SmeLine.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 SmeLineP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 SmeThreeD.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 SmeThreeDP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 StripChart.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 StripCharP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 Template.c /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 Template.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 TemplateP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 Text.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 TextP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 TextSink.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 TextSinkP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 TextSrc.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 TextSrcP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 ThreeD.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 ThreeDP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 Tip.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 TipP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 Toggle.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 ToggleP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 Tree.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 TreeP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 Viewport.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 ViewportP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 Xaw3dP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 XawInit.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 MultiSrc.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 MultiSrcP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 MultiSink.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 MultiSinkP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 VendorEP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
++ bsdinst -c -m 0444 XawImP.h /usr/include/X11/X11/Xaw3d
+/etc/install: can't create /usr/include/X11/X11/Xaw3d: No such file or directory.
+install in . done
+??
+============================================================================================
+
+
+So I think I will give up with snns for the moment, because now I'm too much demoralized :-{
+
+But thanks for your very kind help!
+
+Ciao and greeting to germany,
+
+Armida
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000018.html">[Snns-dev-general] problems withsnns-4.2-20040227.patch]]]
+</A></li>
+	<LI>Next message: <A HREF="000020.html">[Snns-dev-general] Re: ANN Sample analysis
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#19">[ date ]</a>
+              <a href="thread.html#19">[ thread ]</a>
+              <a href="subject.html#19">[ subject ]</a>
+              <a href="author.html#19">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/snns-dev-general">More information about the Snns-dev-general
+mailing list</a><br>
+</body></html>

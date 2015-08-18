@@ -1,0 +1,28 @@
+From Thomas.Collins at ul.ie  Tue Apr  5 10:50:06 2005
+From: Thomas.Collins at ul.ie (Thomas.Collins)
+Date: Tue, 5 Apr 2005 09:50:06 +0100 
+Subject: [Snns-dev-general] Network topology article
+Message-ID: <0B2F845E9599D611A6FA00B0D0D1DE4A0200D289@exch-staff4.ul.ie>
+
+Hi all,
+I seem to remember that a while ago, in the past couple of months, someone
+posted a
+reference to an article on the list relating to choosing network topology
+which I meant to source and read.
+ 
+However the mail that contained the articles details got deleted and I can't
+seem to find it in the list archives
+(although the post might have been to the old list address I'm not 100% on
+that one).
+ 
+Apologises for the lack of details regarding the actual article, I just
+remember that the post was not that long ago,
+but if someone has the details could they send it on to me when they get a
+chance?
+ 
+Many thanks
+Thomas
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/snns-dev-general/attachments/20050405/ba2ade6e/attachment.html>
+
